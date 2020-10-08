@@ -1,0 +1,316 @@
+import math
+"""
+#1 - Leia e imprima um número inteiro
+numeroint = int(input("Digite um número:")
+print(f"O número é {numeroint}")
+
+#2 - Leia e imprima um número real
+numeroreal = float(input("Digite um número:")
+print(f"O número é {numeroreal}")
+
+#3 - Digitar 3 valores inteiros e imprimir a soma
+
+num1 = int(input("Digite o primeiro número:"))
+num2 = int(input("Digite o segundo número:"))
+num3 = int(input("Digite o terceiro número:"))
+
+soma = num1+num2+num3
+print(f'A soma é {soma}')
+
+#4 - Ler e imprimir o quadrado de um número real
+numero = float(input("Digite um número:"))
+numeroquad = numero ** 2
+print(f"O quadrado de {numero} é {numeroquad}")
+
+#5 - Ler e imprimir a quinta parte de um número real
+numero = float(input("Digite um número:"))
+quintanumero = numero / 5
+print(f"A quinta parte de {numero} é {quintanumero}")
+
+#6 - Ler uma temperatura em Celsius e converter para Fahrenheit
+celsius = float(input("Digite a temperatura em Celsius:"))
+fahr = celsius*(9/5) +32
+print(f"{celsius}ºC são {fahr}ºF")
+
+#7 - Ler uma temperatura em Fahrenheit e converter para Celsius
+fahr = float(input("Digite a temperatura em Fahrenheit:"))
+celsius = 5*(fahr-32)/9
+print(f"{fahr}ºF são {celsius}ºC")
+
+#8 - Ler uma temperatura em Kelvin e converter para Celsius
+kelvin = float(input("Digite a temperatura em Kelvin:"))
+celsius = kelvin -273.15
+print(f"{kelvin}K são {celsius}ºC")
+
+#9 - Ler uma temperatura em Celsius e converter para Kelvin
+celsius = float(input("Digite a temperatura em Celsius:"))
+kelvin = celsius + 273.15
+print(f"{celsius}ºC são {kelvin}K")
+
+#10 - Ler uma velocidade em km/h e converter para m/s
+velocidade = float(input("Digite a velocidade em km/h:"))
+conversao = velocidade/3.6
+print(f"{velocidade}km/h são {conversao}m/s")
+
+#11 - Ler uma velocidade em m/s e converter para km/h
+velocidade = float(input("Digite a velocidade em m/s:"))
+conversao = velocidade * 3.6
+print(f"{velocidade}m/s são {conversao}km/h")
+
+#12 - Ler uma distancia em milhas e converter para km
+distancia = float(input("Digite a distancia em milhas:"))
+conversao = distancia * 1.61
+print(f"{distancia}milhas são {conversao}km")
+
+#13 - Ler uma distancia em km e converter para milhas
+distancia = float(input("Digite a distancia em kilometros:"))
+conversao = distancia /1.61
+print(f"{distancia}km são {conversao}milhas")
+
+#14 - Ler um angulo em graus e converter para radianos
+angulo = float(input("Digite um ângulo:"))
+conversao = angulo * math.pi / 180
+print(f"{angulo}º são {conversao} radianos")
+
+#15 - Ler um angulo em radianos e converter para graus
+angulo = float(input("Digite um ângulo em radianos:"))
+conversao = angulo * 180 / math.pi
+print(f"{angulo} rad são {conversao}º")
+
+#16 - Ler um comprimento em polegadas e converter para cm
+comp = float(input("Digite o comprimento em polegadas:"))
+conversao = comp * 2.54
+print(f"{comp} polegadas são {conversao} cm")
+
+#17 - Ler um comprimento em cm e converter para polegadas
+comp = float(input("Digite o comprimento em cm:"))
+conversao = comp/2.54
+print(f"{comp} cm são {conversao} polegadas")
+
+#18 - Ler volume em m³ e converta para litros
+volume = float(input("Digite o volume em m³:"))
+conversao = volume *1000
+print(f"{volume}m³ são {conversao} litros")
+
+#19 - Ler volume em litros e converter em m³
+volume = float(input("Digite o volume em litros:"))
+conversao = volume /1000
+print(f"{volume} litros são {conversao}m³")
+
+#20 - Ler a massa em kg e converter para libras
+massa = float(input("Digite a massa em kg:"))
+conversao = massa/0.45
+print(f"{massa}kg são {conversao} libras")
+
+#21 - Ler a massa em libras e converter para kg
+massa = float(input("Digite a massa em libras:"))
+conversao = massa * 0.45
+print(f"{massa} libras são {conversao}kg0")
+
+#22 - Ler o comprimento em jardas e converter para metros
+comp = float(input("Digite o valor do comprimento em jardas:"))
+conversao = comp * 0.91
+print(f"{comp} jardas são {conversao} m")
+
+#23 - Ler o comprimento em metros e converter para jardas
+comp = float(input("Digite o valor do comprimento em m:"))
+conversao = comp /0.91
+print(f"{comp} m são {conversao} jardas")
+
+#24 - Ler a área em m² e converter em acres
+area = float(input("Dgite a área em m²:"))
+conversao = area * 0.000247
+print(f"{area}m² são {conversao} acres")
+
+#25 - Ler a área em acres e converter para m²
+area = float(input("Digite a área em acres:"))
+conversao = area *4048.58
+print(f"{area} acres são {conversao}m²")
+
+#26 - Ler a área em m² e converter para hectares
+area = float(input("Digite a área em m²:"))
+conversao = area * 0.0001
+print(f"{area}m² são {conversao} ha")
+
+#27 - Ler a área em hectares e converter para m²
+area = float(input("Digite a área em ha:"))
+conversao = area * 10000
+print(f"{area} ha são {conversao}m²")
+
+#28 - Ler três valores e apresentar a soma dos quadrados
+val1 = float(input("Digite o 1º valor:"))
+val2 = float(input("Digite o 2º valor:"))
+val3 = float(input("Digite o 3º valor:"))
+
+res = val1**2 + val2 **2 + val3**2
+print(f"A soma dos quadrados de {val1},{val2} e {val3} é {res}")
+
+#29 - Ler 4 notas e calcular a média aritmetica
+nota1 = float(input("Digite a 1ª nota:"))
+nota2 = float(input("Digite a 2ª nota:"))
+nota3 = float(input("Digite a 3ª nota:"))
+nota4 = float(input("Digite a 4ª nota:"))
+
+media = (nota1+nota2+nota3+nota4)/4
+print(f"A média das notas ({nota1},{nota2},{nota3},{nota4}) é {media}.")
+
+#30 - Ler um valor em real e a cotação do dólar e imprimir o correspondente
+valor = float(input("Digite o valor em reais:"))
+cotacao = float(input("Digite a cotação do dolar:"))
+
+conversao = valor / cotacao
+print(f"R${valor} são ${conversao} dólares")
+
+#31 - Ler um inteiro e imprimir o sucessor e antecessor
+numero = int(input("Digite um número inteiro:"))
+antecessor = numero -1
+sucessor = numero +1
+print(f"{antecessor} é o antecessor de {numero} e {sucessor} é o sucessor de {numero}.")
+
+#32- Ler um inteiro e imprimir a soma do sucessor de seu triplo com o antecessor de seu dobro
+numero = int(input("Digite um número inteiro:"))
+valor = (3*numero+1)+(2*numero-1)
+print(f"O valor do sucessor do triplo somado ao antecessor do dobro de {numero} é {valor}")
+
+#33 - Ler o tamanho do lado de um quadrado e imprimir a área
+lado = float(input("Digite o valor do lado do quadrado:"))
+area = lado**2
+print(f"A área do quadrado de lado {lado} é {area}")
+
+#34 - Ler o valor do raio e imprimir a área do círculo
+raio = float(input("Digite o raio do círculo:"))
+area = math.pi*(raio**2)
+print(f"A área do círculo de raio {raio} é {area}")
+
+#35 - Ler os catetos de um triangulo retangulo e imprimir a hipotenusa
+a = float(input("Digite o cateto a do triângulo retângulo:"))
+b = float(input("Digite o cateto b do triângulo retângulo:"))
+hipotenusa = ((a**2)+(b**2))**(0.5)
+print(f"A hipotenusa do triângulo retângulo de catetos {a} e {b} é {hipotenusa}")
+
+#36 - Ler a altura e raio de um cilindro e imprimir o volume
+altura = float(input("Digite a altura do cilindro:"))
+raio = float(input("Digite o raio do cilindro:"))
+
+volume = altura*math.pi*(raio**2)
+print(f"O volume do cilindro de altura {altura} e raio {raio} é {volume}")
+
+#37 - Ler o valor de um produto e imprimir desconto de 12%
+preco = float(input("Digite o preço do produto:"))
+preconovo = preco *(1-0.12)
+print(f"O valor de R${preco} com desconto de 12% é R${preconovo}.")
+
+#38 - Ler salário de um funcionário e imprimir aumento de 25%
+salario = float(input("Digite o valor do salário:"))
+salarionovo = salario*(1+0.25)
+print(f"O valor do salário R${salario} com aumento de 25% é R${salarionovo}.")
+    
+    Escolhendo a % de aumento
+        salario = float(input("Digite o valor do salário:"))
+        aumento = float(input("Digite a % de aumento:"))
+        salarionovo = salario *(1+aumento/100)
+        print(f"O valor do salário R${salario} com aumento de {aumento}% é R${salarionovo}.")
+
+#39 - 780.000 reais será dividido em 3 ganhadores. O primeiro recebe 46%
+      O segundo recebe 32% e o terceiro recebe o restante.
+      calcule e imprima a quantia que cada um recebe
+valor_premio = 780_000
+ganhador1 = valor_premio *0.46
+ganhador2 = valor_premio *0.32
+ganhador3 = valor_premio*(1-(0.46+0.32))
+print(f"O primeiro ganhador receberá R${ganhador1}, o segundo ganhador receberá R${ganhador2} e o terceiro ganhador receberá R${ganhador3}.")
+
+#40 - Encanador contratado por R$30,00 por dia. Leia o números de dias
+        trabalhados e imprima a quantia líquida, que tem desconto
+        de 8% para imposto de renda
+diaria = 30
+dias = int(input("Digite a quantidade de dias trabalhados:"))
+quantialiq = (diaria*dias)*(1-0.08)
+print(f"A quantia líquida referente a {dias} dias trabalhados será R${quantialiq}")
+
+#41 - Ler valor de hora de trabalho e número de horas e imprimir valor+10%
+valorhora = float(input("Digite o valor de hora de trabalho:"))
+horas = float(input("Digite a quantidade de horas trabalhadas:"))
+salario = valorhora*horas*(1+0.1)
+
+print(f"O salário referente a {horas} horas de trabalho com R${valorhora} sendo o valor da hora de trabalho é R${salario}.")
+
+#42 - Ler o salário e imprima o novo salário com 5% de grat. e 7% de imposto
+
+#43 - A partir de um valor mostre: 
+    >o total a pagar com desconto de 10%
+    >valor da parcela no parcelamento 3x sem juros
+    >comissao do vendedor(5% sobre o valor com desconto)
+    >comissao do vendedor da venda parcelada(5% sobre o valor total)
+
+#44 - Receber altura do degrau e altura desejada ao subir. Mostre quantos degraus deverá subir
+altdegrau = float(input("Digite a altura do degrau:"))
+altura= float(input("Digite a altura que deseja subir:"))
+
+degraus = int(altura/altdegrau)
+print(f"É necessário subir {degraus} degraus.")
+
+#45 - Converter letra maiuscula para minuscula
+texto = input("Digite um texto em maíusculo para converter em minúsculo:")
+print(texto.lower())
+
+#46 - Ler um inteiro positivo de 3 dígitos e imprima o numero invertido
+numero = input("Digite um número de 3 dígitos:")
+print(numero[::-1])
+
+#47 - Ler um numero de 4 digitos e imprima 1 digito por linha
+numero = input("Digite um número de 4 dígitos:")
+print(f"{numero[0]} \n{numero[1]} \n{numero[2]} \n{numero[3]}")
+
+#48 - Ler um inteiro em segundos e imprimir a transformação em horas, minutos e segundos
+segundos = int(input("Digite uma quantidade de segundos:"))
+horas = segundos/3600
+minutos = segundos/60
+print(f"{horas} horas, {minutos} minutos, {segundos} segundos")
+
+#49 - Ler horario hora, minuto e segundo de inicio e duração em segundos e imprimir o novo horario
+horario = input("Digite as horas, minutos e segundos do horário no seguinte formato: (h:m:s) :")
+lista = horario.split(':')
+duracao = int(input("Digite a quantidade de segundos decorridos:"))
+lista[2] = duracao + int(lista[2])
+print(f"{lista[0]}:{lista[1]}:{lista[2]}")
+
+#50- Calcular ano de nascimento a partir da idade e ano atual
+idade = int(input("Digite a sua idade:"))
+anoatual = int(input("Digite ano atual:"))
+
+nascimento = anoatual - idade
+print(f"O ano de nascimento é {nascimento}.")
+
+#51 - Ler coordenadas x e y de pontos de R² e calcular distancia da origem
+x = float(input("Digite a coordenada x:"))
+y = float(input("Digite a coordenada y:"))
+dist = (x**2+y**2)**0.5
+print(f"A distância de ({x},{y}) até a origem é {dist}.")
+
+#52- Ler valor do prêmio, valor apostado por 3 pessoas e imprimir valor recebido com base em quanto cada um apostou proporcionalmente
+premio = float(input("Digite o valor do prêmio:"))
+aposta1 = float(input("Digite o valor apostado pela 1ª pessoa:"))
+aposta2 = float(input("Digite o valor apostado pela 2ª pessoa:"))
+aposta3 = float(input("Digite o valor apostado pela 3ª pessoa:"))
+
+porc1 = aposta1/(aposta1+aposta2+aposta3)
+porc2 = aposta2/(aposta1+aposta2+aposta3)
+porc3 = aposta3/(aposta1+aposta2+aposta3)
+
+premio1 = porc1*premio
+premio2 = porc2*premio
+premio3 = porc3*premio
+
+print(f"Os valores recebidos por cada pessoa foi R${premio1}, R${premio2}, R${premio3}")
+
+#53 - Ler dimensões de um terreno e preço do metro de tela e imprimir custo para cercar o terreno
+comprimento = float(input("Digite o valor do comprimento:"))
+largura = float(input("Digite o valor da largura:"))
+custometro = float(input("Digite o custo do metro de cerca:"))
+
+perimetro = 2*comprimento + 2*largura
+custo = custometro*perimetro
+print(f"O valor total é de R${custo}.")
+
+"""
