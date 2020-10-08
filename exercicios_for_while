@@ -618,4 +618,197 @@ while ze<=chico:
     ano+=1
 print(f"São necessários {ano} anos. Chico = {chico} / Zé = {ze}.")
 
+#51 - Funcionário recebe aumento anual. Em 95 foi contratado por 2000 reais. Em 96 recebeu aumento de 1.5%. A partir de 97, os aumentos sempre correspondem ao dobro do ano anteiror. Faça um programa que determine o salário atual do funcionário
+taxa = 0.15
+for i in range(1996,2021):
+    salario = 2000*(1+taxa)
+    taxa *=2
+print(salario)
+
+#53 - Receber o valor do saque realizado pelo cliente de um banco e retorne quantas notas de cada valor serão necessárias para atender ao saque com a menor quantidade de notas possível. Serao usadas notas de 100,50,20,10,5,2,1 real
+
+while True:
+    saque = int(input("Digite o valor do saque(Digite 0 ou negativo para sair do programa): "))
+    if saque<=0:
+        print("Saindo do programa...")
+        break
+    else:
+        notas = [100,50,20,10,5,2,1]
+        restante = saque
+        for i in notas:
+            notasi = int(restante/i)
+            restante -= notasi*i
+            if notasi>0:
+                print(f"{notasi} notas de {i}")
+
+#53 - Escreva um programa que leia um número inteiro positivo n e em seguida imprima n linhas do Triangulo de Floyd.
+n = int(input("Digite um número inteiro positivo: "))
+valor = 1
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(valor,end=" ")
+        valor+=1
+    print('\n')
+
+#54 - Receba um número inteiro maior que 1 e verificar se o número é primo ou não
+while True:
+    num = int(input("Digite um número inteiro positivo(0 para sair do programa): "))
+    if num<=0:
+        print("Número digitado é negativo ou nulo. Saindo do programa...")
+        break
+    else:
+        div = 0
+        for i in range(1,num+1):
+            if num%i==0:
+                div +=1
+                if div>2:
+                    break
+        if div==2:
+            print("Número é primo.")
+        else:
+            print("Número não é primo.")
+
+#55 - Ler um inteiro não negativo n e imprimir a soma dos n primeiros números primos
+n = int(input("Digite um número inteiro positivo: "))
+soma = 0
+cont = 0
+primoatual = 0
+
+while cont < n:
+    primoatual +=1
+    div = 0
+    for i in range(1,primoatual+1):
+        if primoatual%i==0:
+            div+=1
+            if div>2:
+                break
+    if div==2:
+        cont +=1
+        soma+=primoatual
+print(f"A soma dos {n} primeiros primos é {soma}.")
+
+#56 - Calcular a soma de todos os números primos abaixo de 2 milhões
+primoatual = 0
+soma = 0
+
+
+while primoatual<=2000000:
+    primoatual+=1
+    div=0
+    for i in range(1,primoatual+1):
+        if primoatual!=2 and primoatual%2==0:
+            break
+        elif primoatual!=3 and primoatual%3==0:
+            break
+        elif primoatual%i==0:
+            div+=1
+            if div>2:
+                break
+    if div==2:
+        soma+=primoatual
+        print(f"Primo atual = {primoatual} / Soma = {soma}.")
+
+print(f"A soma dos primos menores que 2 Milhões é {soma}")
+
+#57 - Fazer um programa que conte quantos números primos existem entre a e b, onde a e b são números informados pelo usuário
+a = int(input("Digite o valor inicial do intervalo: "))
+b = int(input("Digite o valor final do intervalo: "))
+primoatual = a
+cont = 0
+while primoatual<=b:
+    div = 0
+    for i in range(a,primoatual+1):
+        if primoatual%i==0:
+            div+=1
+    if div==2:
+        cont += 1
+    primoatual+=1
+    
+print(cont)
+
+#58 - Fazer um programa que some os números primos existentes entre a e b
+a = int(input("Digite o valor inicial do intervalo: "))
+b = int(input("Digite o valor final do intervalo: "))
+primoatual = a
+cont = 0
+soma = 0
+while primoatual<=b:
+    div = 0
+    for i in range(a,primoatual+1):
+        if primoatual%i==0:
+            div+=1
+    if div==2:
+        cont += 1
+        soma+=primoatual
+    primoatual+=1
+    
+print(cont,soma)
+
+#59 - Ler o número de habitantes de uma cidade, valor do kwh e para cada habitante entre com os seguintes dados: consumo do mes, codigo do consumidor(1-Residencial, 2-comercial, 3-industrial). No final imprima o maior, menor e a media do consumo dos habitantes. Por fim o total do consumo de cada categoria
+hab = int(input("Digite o número de habitantes da cidade: "))
+valor = float(input("Digite o valor do kwh: "))
+consumos1 = []
+consumos2 = []
+consumos3 = []
+consumos = []
+
+if hab>0:
+    for i in range(hab):
+        consumo = float(input("Digite o consumo de kwh: "))
+        cod = input("Digite o código correspondente:\n1 - Residencial\n2 - Comercial\n3 - Industrial\n")
+        if cod == "1":
+            consumos1.append(consumo)
+        elif cod == "2":
+            consumos2.append(consumo)
+        elif cod == "3":
+            consumos3.append(consumo)
+        else:
+            print("O código digitado não é válido.")
+            break
+    consumos = consumos1+consumos2+consumos3
+
+    print(f"Máximo: {max(consumos)}, Mínimo: {min(consumos)}, Média: {sum(consumos)/len(consumos)}")
+    print(f"Soma Grupo 1: {sum(consumos1)}, Soma Grupo 2: {sum(consumos2)}, Soma Grupo 3: {sum(consumos3)}")
+
+else:
+    print("O número de habitantes precisa ser maior do que 0.")
+
+#60 - Ler varios numeros e mostrar:a) A soma dos numeros digitados / b) A quantidade de numeros digitados / c) A média dos numeros digitados / d) O maior numero digitado / e) O menor numero digitado / f) A media dos pares // Finalize a entrada de dados caso o usuario digite 0
+lista = []
+
+while 0 not in lista:
+    num = float(input("Digite um número: "))
+    lista.append(num)
+
+lista.remove(0)
+
+soma = sum(lista)
+tam = len(lista)
+media = soma/tam
+min = min(lista)
+max = max(lista)
+somapar = 0
+
+for i in lista:
+    if i%2==0:
+        somapar+=i
+print(f"Soma = {soma}\nQuantidade de números = {tam}\nMédia = {media}\nMínimo = {min}\nMáximo = {max}\nSoma dos pares = {somapar}")
+
+#61 - Fazer um programa que calcule o maior numero palíndromo feito a partir do produto de dois numeros de 3 digitos. Ex: O maior palindromo feito a partir de 2 numeros de 2 digitos é 9009 = 91*99
+lista = []
+listanum = []
+
+for i in range (1000,100,-1):
+    for j in range(1000,100,-1):
+        valor = i*j
+        palindromo = str(valor)
+        if (palindromo[0:3])==(palindromo[3:7]):
+            lista.append(palindromo)
+            break
+for item in lista:
+    listanum.append(int(item))
+
+res = max(listanum)
+print(res)
+
 """
