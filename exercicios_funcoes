@@ -1,0 +1,1212 @@
+"""
+#1 - Função que recebe um parâmetro inteiro e devolve o dobro
+
+def dobro(inteiro):
+    return 2*inteiro
+
+#2 - Função que recebe a data atual(dia,mes e ano em inteiro) e exiba na tela no formato textual por extenso
+
+def datatxt(dia,mes,ano):
+    if mes == 1:
+        mes = "Janeiro"
+    elif mes == 2:
+        mes = "Fevereiro"
+    elif mes == 3:
+        mes = "Março"
+    elif mes == 4:
+        mes = "Abril"
+    elif mes == 5:
+        mes = "Maio"
+    elif mes == 6:
+        mes = "Junho"
+    elif mes == 7:
+        mes = "Julho"
+    elif mes == 8:
+        mes = "Agosto"
+    elif mes == 9:
+        mes = "Setembro"
+    elif mes == 10:
+        mes = "Outubro"
+    elif mes == 11:
+        mes = "Novembro"
+    elif mes == 12:
+        mes = "Dezembro"
+    return f"{dia} de {mes} de {ano}"
+
+#Exemplos:
+print(datatxt(5,6,2020))
+print(datatxt(2,2,1989))
+print(datatxt(31,7,1900))
+print(datatxt(4,12,1960))
+
+#3 - Faça uma função para verificar se um número é positivo ou negativo. Sendo o valor de retorno será 1 se positivo, -1 negativo e 0 se for 0
+
+def versinal(numero):
+    if numero>0:
+        return 1
+    elif numero <0:
+        return -1
+    return 0
+
+#Exemplos:
+print(versinal(5))
+print(versinal(-40))
+print(versinal(0))
+print(versinal(60))
+
+
+#4 - Faça uma função para verificar se um número é um quadrado perfeito. Um quadrado perfeito é um número inteiro nao negativo que pode ser expresso como o quadrado de outro numero
+
+from math import sqrt
+def quadperf(numero):
+    if round(sqrt(numero)) ** 2 == numero:
+        return f"{numero} é quadrado perfeito!"
+    return f"{numero} não é quadrado perfeito!"
+
+#Exemplos:
+print(quadperf(55))
+print(quadperf(49))
+print(quadperf(25))
+print(quadperf(20))
+print(quadperf(31.5))
+print(quadperf(89))
+print(quadperf(64))
+print(quadperf(81))
+print(quadperf(200))
+
+#5 - Faça uma função e um programa de teste para calculo do volume de uma esfera. Raio é o parametro V = 4/3pir³
+
+from math import pi
+def vol(raio):
+    return (4/3)*pi*(raio**3)
+
+#Exemplos:
+print(vol(4))
+print(vol(2))
+print(vol(1))
+
+
+#6 - Faça uma função que receba 3 numeros inteiros como parametro, representando horas, minutos e segundos e converta para segundos
+
+def convertoseg(hrs,min,seg):
+    return hrs*3600 + min*60 + seg
+
+#Exemplos:
+print(convertoseg(1,60,0))
+print(convertoseg(1,0,0))
+print(convertoseg(0,1,0))
+print(convertoseg(36,105,150))
+
+#7 - Faça uma função que receba uma temperatura em grau celsius e retorne convertida em fahrenheit F=C*(9/5)+32
+
+
+def convertofah(celsius):
+    return celsius*(9/5)+32
+
+#Exemplos:
+print(convertofah(40))
+print(convertofah(25))
+print(convertofah(0))
+print(convertofah(100))
+
+#8 - Faça um função que receba os catetos e calcule a hipotenusa de um triangulo retangulo
+
+from math import sqrt
+def hipot(a,b):
+    return sqrt(a**2 + b**2)
+
+#Exemplos:
+print(hipot(1,2))
+print(hipot(3,4))
+print(hipot(11,12))
+
+#9 - Faça uma funçao que receba a altura e o raio de um cilindro circular e retorne o volume do cilindro
+
+from math import pi
+def volcil(altura,raio):
+    return (pi*raio**2)*altura
+
+#Exemplos:
+print(volcil(1,2))
+print(volcil(10,10))
+print(volcil(3,9))
+print(volcil(5,5))
+print(volcil(2,1))
+
+#10 - Faça uma função que receba 2 numeros e retorne qual é o maior
+
+def maiornumero(a,b):
+    if a>b:
+        return a
+    return b
+
+#Exemplos:
+print(maiornumero(1,2))
+print(maiornumero(25,2))
+print(maiornumero(10,23))
+print(maiornumero(-5,4))
+print(maiornumero(41,41))
+
+#11 - Elabore uma função que receba 3 notas de um aluno como parametros e uma letra. Se a letra for A, a funçao devera calcular a media. Se for P, devera calcular a media ponderada com pesos 5,3 e 2.
+
+def mednota(nota1,nota2,nota3,tipo):
+    if tipo == "A":
+        return (nota1+nota2+nota3)/3
+    elif tipo == "P":
+        return (5*nota1+3*nota2+2*nota3)/10
+    else:
+        return "Tipo de média inválida. Selecione 'A' para aritmética ou 'P' para ponderada."
+
+#Exemplos:
+print(mednota(7,8,9,"A"))
+print(mednota(10,7,6,"A"))
+print(mednota(10,5,3,"P"))
+print(mednota(7,8,9,"P"))
+print(mednota(1,2,3,"C"))
+print(mednota(5,5,5,"P"))
+print(mednota(5,5,5,"A"))
+
+#12 - Escreva uma função que receba um numero inteiro maior do que zero e retorne a soma de todos os seus algarismos. Se o numero nao for maior que zero, retornar numero invalido
+
+
+def somalg(numero):
+    if numero != int(numero) or numero<0:
+        return f"O número {numero} é inválido. Insira um número inteiro positivo."
+    txtnum = str(numero)
+    soma = 0
+    for letra in txtnum:
+        soma += int(letra)
+    return soma
+
+#Exemplos:
+print(somalg(123))
+print(somalg(555))
+print(somalg(954))
+print(somalg(16904503))
+print(somalg(63.56))
+print(somalg(-506))
+
+#13 - Faça uma função que receba dois valores numericos e um simbolo. Este simbolo representará a operação que se deseja efetuar com os numeros. Se o simbolo for + devera realizar adiçao, - subtraçao, / div, * mult
+
+def operacao(a,b,simb):
+    if simb == "+":
+        return a + b
+    elif simb == "-":
+        return a - b
+    elif simb == "/":
+        return a/b
+    elif simb == "*":
+        return a*b
+    return "Símbolo de operação inválido."
+
+#Exemplos:
+print(operacao(4,5,'+'))
+print(operacao(9,6,'-'))
+print(operacao(20,10,'/'))
+print(operacao(30,2,'*'))
+print(operacao(40,6,'='))
+
+#14 - Faça uma função que receba a distancia em km e quantidade de litros de gasolina consumidos por um carro e calcule o km/l e escreva uma mensagem de acordo com a tabela abaixo:
+
+# Consumo < 8 -> Venda o carro
+# 8<Consumo<12 -> Economico
+# Consumo>12 -> Super economico
+
+def cons(km,litros):
+    consumo = km/litros
+    if consumo<8:
+        print("Venda o carro!")
+    elif 8<=consumo<12:
+        print("Econômico!")
+    else:
+        print("Super econômico!")
+
+#Exemplos:
+cons(5,10)
+cons(54,6)
+cons(120,9)
+
+#15 - Receber 3 valores maiores que 0, representando as medidas dos lados de um triangulo. Elaborar funções para:
+# a) Determinar se eles formam lados de um triangulo -> O comprimento de cada lado é menor que a soma dos outros 2
+# b) Determinar o tipo de triangulo, caso as medidas formem um triangulo. Equilatero = lados iguais. Isosceles = 2 lados iguais. Escaleno = tres lados distintos
+
+def tipotriangulo(a,b,c):
+    if a==b and b==c:
+        print("Triângulo Equilátero!")
+    elif a==b or b==c or a==c:
+        print("Triângulo Isósceles!")
+    else:
+        print("Triângulo Escaleno!")
+
+def vertriangulo(a,b,c):
+    if a<b+c and b<a+c and c<a+b:
+        print(f"{a}, {b} e {c} formam um triângulo!")
+        tipotriangulo(a,b,c)
+    else:
+        print(f"{a}, {b} e {c} não formam um triângulo!")
+
+#Exemplos:
+vertriangulo(15,2,3)
+vertriangulo(4,5,6)
+vertriangulo(5,5,5)
+vertriangulo(6,3,6)
+
+
+#16 - Faça uma funçao chamada DesenhaLinha. Ela deve desenhar uma linha na tela usando varios simbolos de igual Ex ========. A função recebe por parametro quantos sinais de igual serao mostrados
+
+def desenha_linha(tamanho,caracter):
+    print(tamanho*caracter)
+
+#Exemplos:
+desenha_linha(6,'=')
+desenha_linha(20,"_")
+desenha_linha(10,'-')
+
+#17 - Faça uma funçao que receba dois numeros inteiros positivos por parametro e retorne a soma dos N inteiros existentes entre eles
+
+def soma_entre(a,b):
+    if a != int(a) or b!=int(b) or a<0 or b<0:
+        print("Valores inseridos são inválidos. Insira valores inteiros positivos.")
+    else:
+        soma=0
+        if a<b:
+            for i in range(a+1,b):
+                soma+=i
+        else:
+            for i in range(b+1,a):
+                soma+=i
+        print(soma)
+
+
+#Exemplos:
+soma_entre(4,10)
+soma_entre(10,4)
+soma_entre(1,1)
+soma_entre(1,2)
+soma_entre(2,1)
+soma_entre(4.5,6)
+soma_entre(-4,2)
+
+#18 - Faça uma função que receba por parametro dois valores X e Z. Calcule e retorne o resultado de X^z para o programa
+
+def elevado(numero,expoente):
+    return numero ** expoente
+
+#Exemplos:
+print(elevado(5,3))
+print(elevado(2,3))
+print(elevado(1,5))
+print(elevado(20,0))
+print(elevado(3,2))
+print(elevado(-5,3))
+
+
+#19 - Faça uma função que retorne o maior fator primo de um numero
+
+
+def maior_fator(numero):
+    if numero == int(numero) and numero>0:
+        fatorprimo = 0
+        for i in range(1,numero+1):
+            if numero % i ==0:
+                if checar_primo(i)==1:
+                    fatorprimo = i
+        return fatorprimo
+    else:
+        return "O número inserido é inválido. Insira um número inteiro positivo."
+
+def checar_primo(valor):
+    div = 0
+    for j in range(1,valor+1):
+        if valor%j==0:
+            div+=1
+    if div==2:
+        return 1
+    return 0
+
+#Exemplos:
+print(maior_fator(25))
+print(maior_fator(1024))
+print(maior_fator(132))
+print(maior_fator(-5))
+print(maior_fator(4.6))
+
+#20 - Faça um algoritmo que receba um numero inteiro posivito n e calcule o seu fatorial
+
+def fatorial(numero):
+    produto = 1
+    if numero == 0:
+        return 1
+    for i in range(1,numero+1):
+        produto*=i
+    return produto
+
+#Exemplos:
+print(fatorial(0))
+print(fatorial(1))
+print(fatorial(5))
+print(fatorial(10))
+print(fatorial(6))
+
+#21 - Escreva uma função para determinar a quantidade de numeros primos abaixo de N
+
+def quant_primos(n):
+    soma = 0
+    for i in range(1,n):
+        soma+= checar_primo(i)
+    return soma
+
+
+def checar_primo(valor):
+    div = 0
+    for j in range(1,valor+1):
+        if valor%j==0:
+            div+=1
+    if div==2:
+        return 1
+    return 0
+
+#Exemplos:
+print(quant_primos(10))
+print(quant_primos(20))
+print(quant_primos(30))
+print(quant_primos(40))
+print(quant_primos(100))
+
+#22 - Crie uma função que receba como parametro um valor inteiro e gere como saida n linhas com pontos de exclamação 
+
+def exclamacao(linhas):
+    for i in range(1,linhas+1):
+        print('!'*i)
+
+#Exemplos:
+exclamacao(1)
+exclamacao(3)
+exclamacao(5)
+exclamacao(2)
+exclamacao(6)
+exclamacao(8)
+
+#23 - Escreva uma função que gera um triangulo lateral de altura (2*n)-1 e n largura
+
+
+def triangulo(altura):
+    for i in range(1,altura+1):
+        print('*'*i)
+    for i in range(altura-1,0,-1):
+        print('*'*i)
+
+#Exemplos:
+triangulo(5)
+triangulo(2)
+triangulo(20)
+
+#24 - Escreva uma função que gera um triângulo de altura e lados n e base (2*n)-1
+
+
+def triangulo(linhas):
+    for i in range(1,linhas+1):
+        print('*'*(2*i-1))
+
+#Exemplos:
+triangulo(6)
+triangulo(20)
+triangulo(40)
+
+#25 - Faça uma função que receba um inteiro n, calcule e retorne o resultado da serie S = 2/4+5/5+10+6+...+(n^2+1)/(n+3)
+
+def calc_serie(n):
+    soma = 0
+    for i in range(1,n+1):
+        soma += (i**2+1)/(i+3)
+    return soma
+
+#Exemplos:
+print(calc_serie(3))
+print(calc_serie(6))
+print(calc_serie(9))
+
+#26 - Faça um algoritmo que receba um numero inteiro positivo n e calcule o somatorio de 1 ate n
+
+def somatorio(n):
+    soma = 0
+    for i in range(1,n+1):
+        soma += i
+    return soma
+
+#Exemplos:
+print(somatorio(100))
+print(somatorio(10))
+
+#27 - Faça uma função que receba como parametro o valor de um angulo em graus e calcule o valor do seno desse angulo usando serie de taylor: 
+# sinx = x-x^3/3!+x^5/5!-... = sum n=0 a inf ((-1)^n/(2n+1)!)x^(2n+1)
+# x em radianos e n variando de 0 a 5
+
+
+def sen(x):
+    rad = x*3.141593/180
+    soma = 0
+    for i in range(6):
+        soma += (((-1)**i)/fatorial(2*i+1))*(rad**(2*i+1))
+    return soma
+
+
+def fatorial(valor):
+    fat = 1
+    for j in range(1,valor+1):
+        fat *= j
+    return fat
+
+#Exemplos:
+print(sen(30))
+print(sen(0))
+print(sen(90))
+
+#28 - Calcule agora o cos x para n de 0 a 5. cos x = sum n=0 a inf ((-1)^n/2n!)x^(2n)
+
+def cos(x):
+    rad = x*3.141593/180
+    soma = 0
+    for i in range(6):
+        soma += (((-1)**i)/fatorial(2*i))*(rad**(2*i))
+    return soma
+
+def fatorial(valor):
+    fat = 1
+    for j in range(1,valor+1):
+        fat *= j
+    return fat
+
+#Exemplos:
+print(cos(60))
+print(cos(0))
+print(cos(90))
+
+#29 - Calcule agora o seno hiperbolico. sinh x = x^(2n+1)/(2n+1)!
+
+def senh(x):
+    rad = x*3.141593/180
+    soma = 0
+    for i in range(6):
+        soma += rad**((2*i+1)/fatorial(2*i+1))
+    return soma
+
+def fatorial(valor):
+    fat = 1
+    for j in range(1,valor+1):
+        fat *= j
+    return fat
+
+#Exemplos:
+print(senh(60))
+print(senh(0))
+print(senh(90))
+
+#30 - Calcule agora o cosseno hiperbolico. cosh x = x^(2n)/2n!
+
+def cosh(x):
+    rad = x*3.141593/180
+    soma = 0
+    for i in range(6):
+        soma += (rad**(2*i))/fatorial(2*i)
+    return soma
+
+def fatorial(valor):
+    fat = 1
+    for j in range(1,valor+1):
+        fat *= j
+    return fat
+
+#Exemplos:
+print(cosh(60))
+print(cosh(0))
+print(cosh(90))
+
+#31 - Faça uma função para calcular o número neperiano usando uma série. A função deve ter como parametro o numero de termos que serao somados. sum n=0 a inf 1/n!
+
+
+def neperiano(n):
+    soma = 0
+    for i in range(0,n+1):
+        soma += 1/(fatorial(i))
+    return soma
+
+
+def fatorial(valor):
+    fat = 1
+    for j in range(1,valor+1):
+        fat *= j
+    return fat
+
+#Exemplos:
+print(neperiano(3))
+print(neperiano(5))
+print(neperiano(8))
+print(neperiano(10))
+print(neperiano(15))
+
+#32 - Faça uma função chamada simplifica que recebe como parametro o numerador e denominador de uma fraçao e simplificar o num e den pelo maior fator possivel
+
+def mdc(a,b):
+    while b !=0:
+        resto = a % b
+        a = b
+        b = resto
+
+    return a
+
+def simplifica(numerador,denominador):
+    return numerador/mdc(numerador,denominador),denominador/mdc(numerador,denominador)
+
+#Exemplos:
+print(simplifica(10,30))
+print(simplifica(64,1024))
+print(simplifica(33,37))
+print(simplifica(60,20))
+
+#33 - Faça uma função que receba um numero n e retorne a soma dos algarismos de N!
+
+def fatorial(n):
+    mult = 1
+    for i in range(1,n+1):
+        mult*=i
+    return mult
+
+def soma_algfat(n):
+    numtxt = str(fatorial(n))
+    soma = 0
+    for dig in numtxt:
+        soma += int(dig)
+    return soma
+
+#Exemplos:
+print(soma_algfat(6))
+print(soma_algfat(5))
+print(soma_algfat(10))
+print(soma_algfat(7))
+
+#34 - Faça uma função nao recursiva que receba um numero inteiro positivo impar n e retorne o fatorial duplo desse numero. O fatorial duplo é definido como o produto de todos os 
+# numeros naturais impares de 1 ate algum numero impar n
+
+def fatorial_duplo(n):
+    mult = 1
+    if n%2==1:
+        for i in range(1,n+1):
+            if i % 2 == 1:
+                mult *= i
+    else:
+        for i in range(1,n+1):
+            if i%2==0:
+                mult*=i
+    return mult
+
+#Exemplos:
+print(fatorial_duplo(5))
+print(fatorial_duplo(2))
+print(fatorial_duplo(10))
+print(fatorial_duplo(7))
+
+#35 - Faça uma função nao recursiva que receba um numero inteiro positivo n e retorne o fatorial quadruplo desse numero. O fatorial quadruplo de um numero n é dado por: (2n)!/n!
+
+def fatorial(n):
+    mult = 1
+    for i in range(1,n+1):
+        mult*=i
+    return mult
+
+def fatorial_quad(n):
+    return (fatorial(2*n))/(fatorial(n))
+
+#Exemplos:
+print(fatorial_quad(6))
+print(fatorial_quad(5))
+print(fatorial_quad(10))
+print(fatorial_quad(20))
+
+#36 - Faça uma função nao recursiva que receba um numero inteiro n e retorne o superfatorial desse numero. O superfatorial de n é definida pelo produto dos n primeiros fatoriais de n
+
+def fatorial(n):
+    mult = 1
+    for i in range(1,n+1):
+        mult*=i
+    return mult
+
+
+def superfatorial(n):
+    prod = 1
+    for j in range(1,n+1):
+        prod *= fatorial(j)
+    return prod
+
+#Exemplos:
+print(superfatorial(5))
+print(superfatorial(6))
+print(superfatorial(3))
+print(superfatorial(9))
+
+#37 - Faça uma função nao recursiva que receba um numero inteiro n e retorne o hiperfatorial de n. O hiperfatorial de um numero é o produtorio de n^n
+
+def hiperfatorial(n):
+    mult = 1
+    for i in range(1,n+1):
+        mult *= i**i
+    return mult
+
+#Exemplos:
+print(hiperfatorial(4))
+print(hiperfatorial(5))
+print(hiperfatorial(7))
+
+#38 - Faça uma funçao nao recursiva que receba um numero inteiro n e retorne o fatorial exponencial desse numero. Um fatorial exponencial é um inteiro positivo n elevado a potencia de n-1 que por sua vez é elevado a potencia n-2...
+
+def fatorial_exp(n):
+    valor = n
+    for i in range(n-1,0,-1):
+        valor **= i
+    return valor
+
+#Exemplos:
+print(fatorial_exp(4))
+print(fatorial_exp(2))
+print(fatorial_exp(3))
+
+#39 - Faça uma função Troque que receba duas variaveis reais A e B e troca o valor delas
+
+def troca(a,b):
+    temp1 = a
+    temp2 = b
+    a = temp2
+    b = temp1
+    return a,b
+
+#Exemplos:
+print(troca(1,2))
+print(troca(5,40))
+print(troca(30,10))
+print(troca(25,12))
+
+#40 - Faça uma funçao que receba um vetor de inteiros e retorne quantos valores pares ele possui
+
+
+def conta_pares(vetor):
+    soma = 0
+    for valor in vetor:
+        if valor%2==0:
+            soma+=1
+    return soma
+
+
+#Exemplos:
+print(conta_pares((1,3,5,6,2,1)))
+print(conta_pares((10,20,30,40,25,10)))
+print(conta_pares((9,5,3,9,7)))
+
+
+#41 - Faça uma funçao que receba um vetor de inteiros e retorne o maior valor
+
+def maior_valor(vetor):
+    return max(vetor)
+
+#Exemplos:
+print(maior_valor([1,4,3,2,20,1,-5,4]))
+print(maior_valor([5,1,480,50,12,65,2,2]))
+print(maior_valor([1,3,4,8,9,10,5]))
+print(maior_valor([-4.2,3,6,7,9,1]))
+
+#42 - Faça uma funçao que receba um vetor de reais e retorne a media dele
+
+def media(vetor):
+    return sum(vetor)/len(vetor)
+
+#Exemplos:
+print(media([5,3,1,9,20,1,4,6]))
+print(media([5,2,1,9,10,16,4,6]))
+print(media([45,33,41,99,20,41,49,66]))
+print(media([56,33,14,91,20,13,42,64]))
+
+#43 - Faça uma funçao que receba um vetor de inteiros e o preencha com numeros aleatorios sem repetiçao
+
+from random import randint
+
+def aleatoriza_vetor(vetor):
+    vetor2 = []
+    for i in range(len(vetor)):
+        vetor2.append(randint(-999999999,999999999))
+    vetor = vetor2
+    return vetor
+
+#Exemplos:
+print(aleatoriza_vetor((1,2,3,4,69)))
+
+#44 - Faça uma funçao que receba como parametro um vetor x de 30 elementos inteiros e retorne, dois vetores A e B. O vetor A deve conter os pares de X e o B os impares
+
+def par_impar(*args):
+    a = []
+    b = []
+    for num in args:
+        if num %2 ==0:
+            a.append(num)
+        else:
+            b.append(num)
+    return a,b
+
+print(par_impar(1,2,3,4,5,6,7,8,9,10))
+
+#45 - Faça uma funçao que calcule o desvio padrao de um vetor v contendo n numeros
+
+def media(vetor):
+    return sum(vetor)/len(vetor)
+
+def desvio_padrao(*args):
+    m = media(args)
+    soma = 0
+    for i in range(len(args)):
+        soma += (args[i]- m)**2
+    desvio = (soma/(len(args)-1))**0.5
+    return desvio
+
+#Exemplos:
+print(desvio_padrao(1.55,1.7,1.8))
+
+#46 - Crie um programa contendo as seguintes funçoes que recebem um vetor v numeros reais como parametro
+# Impressao normal do vetor
+# Impressao inversa
+# Funçao que retorna a media aritmetica dos elementos do vetor
+
+
+def info_vetor(vetor):
+    print(vetor)
+    print(vetor[::-1])
+    print(sum(vetor)/len(vetor))
+
+#Exemplos:
+info_vetor([1,2,3,4,5,6])
+
+#47 - Faça uma funçao que receba uma matriz 4x4 e retorne quantos valores maiores do que 10 ela possui
+
+
+def conta_maiordez(matriz):
+    cont=0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if matriz[i][j]>10:
+                cont +=1
+    return cont
+
+#Exemplos:
+print(conta_maiordez([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]))
+print(conta_maiordez([[5],[9,10,11,12],[13,14,16]]))
+
+#48 - Faça uma funçao que receba uma matriz 3x3 elementos. Calcule a soma dos elementos que estao acima da diagonal principal
+
+def soma_sup(matriz):
+    soma=0
+    n = len(matriz)
+    for i in range(n):
+        for j in range(n):
+            if j>i:
+                soma+=matriz[i][j]
+    return soma
+#Exemplos:
+print(soma_sup([[1,2,3],[4,5,6],[7,8,9]]))
+print(soma_sup([[9,8,7],[6,5,4],[3,2,1]]))
+
+#49 - Faça uma funçao que receba uma matriz 3x3 elementos. Calcule a soma dos elementos que estao abaixo da diagonal principal
+
+def soma_sup(matriz):
+    soma=0
+    n = len(matriz)
+    for i in range(n):
+        for j in range(n):
+            if i>j:
+                soma+=matriz[i][j]
+    return soma
+
+
+#Exemplos:
+print(soma_sup([[1,2,3],[4,5,6],[7,8,9]]))
+print(soma_sup([[9,8,7],[6,5,4],[3,2,1]]))
+
+#50 - Faça uma funçao que receba uma matriz 3x3 elementos. Calcule a soma dos elementos que estao na diagonal principal
+
+def soma_sup(matriz):
+    soma=0
+    n = len(matriz)
+    for i in range(n):
+        for j in range(n):
+            if i==j:
+                soma+=matriz[i][j]
+    return soma
+
+
+#Exemplos:
+print(soma_sup([[1,2,3],[4,5,6],[7,8,9]]))
+print(soma_sup([[9,8,7],[6,5,4],[3,2,1]]))
+
+#51 - Faça uma funçao que receba uma matriz 3x3 elementos. Calcule a soma dos elementos que estao na diagonal secundaria
+
+def soma_sup(matriz):
+    soma=0
+    n = len(matriz)
+    for i in range(n-1,-1,-1):
+        for j in range(n):
+            if i==(n-1-j):
+                soma+=matriz[i][j]
+    return soma
+
+print(soma_sup([[0,0,1],[0,1,0],[1,0,0]]))
+print(soma_sup([[9,8,7],[6,5,4],[3,2,1]]))
+
+#52 - Escreva uma funçao que recebe uma matriz quadrada de ordem n e calcule a sua transposta
+
+def transposta(matriz):
+    n = len(matriz)
+    b = matriz
+    for i in range(n):
+        for j in range(n):
+            b[i][j] = matriz[j][i]
+    return b
+
+#Exemplos:
+print(transposta([[1,2,3],[4,5,6],[7,8,9]]))
+
+#53 - Faça uma funçao que verifica se uma matriz quadrada de ordem n é a matriz identidade
+
+def checar_id(matriz):
+    n = len(matriz)
+    id = True
+    for i in range(n):
+        for j in range(n):
+            if i==j:
+                if matriz[i][j] != 1:
+                    id = False
+            else:
+                if matriz[i][j] != 0:
+                    id = False
+    return id
+
+#Exemplos:
+print(checar_id([[1,0,0],[0,1,0],[0,0,1]]))
+print(checar_id([[1,0,2],[0,1,3],[0,0,1]]))
+
+#54 - Faça uma funçao que recebe como parametro uma matriz 4x4 e retorna a soma dos seus elementos
+
+def soma_tudo(matriz):
+    soma = 0
+    n = len(matriz)
+    for i in range(n):
+        for j in range(n):
+            soma += matriz[i][j]
+    return soma
+
+#Exemplos:
+print(soma_tudo([[1,0,0],[0,1,0],[0,0,1]]))
+print(soma_tudo([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]))
+
+#55 - Faça uma que recebe uma matriz 3x3 e retorna a soma dos elementos da sua diagonal principal e secundaria
+
+def soma_diagonais(matriz):
+    soma = 0
+    n = len(matriz)
+    for i in range(n):
+        for j in range(n):
+            if i==j or i==n-1-j:
+                soma += matriz[i][j]
+    return soma
+
+#Exemplos:
+print(soma_diagonais([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]))
+print(soma_diagonais([[1,0,1],[0,1,0],[1,0,1]]))
+print(soma_diagonais([[1,0,2],[0,1,3],[0,0,1]]))
+
+#56 - Faça uma funçao que recebe, por parametro uma matriz 7x6 e uma linha n e retorne a soma dos elementos dessa linha
+
+def soma_linha(matriz,linha):
+    n = len(matriz)
+    m = len(matriz[0])
+    soma = 0
+    for i in range(n):
+        for j in range(m):
+            if i == linha:
+                soma += matriz[i][j]
+    return soma
+
+#Forma mais simples:
+def soma_linha(matriz,linha):
+    return sum(matriz[linha])
+
+#Exemplos:
+print(soma_linha([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]],2))
+
+#57 - Faça uma funçao que recebe, por parametro uma matriz 7x6 e uma linha n e retorne a soma dos elementos dessa coluna
+
+def soma_coluna(matriz,coluna):
+    n = len(matriz)
+    m = len(matriz[0])
+    soma = 0
+    for i in range(n):
+        for j in range(m):
+            if j == coluna:
+                soma += matriz[i][j]
+    return soma
+
+#Exemplos:
+print(soma_coluna([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]],2))
+
+#58 - Faça uma funçao que receba, por parametro, duas matrizes quadradas de ordem n e retorne C como produto matricial
+for i in range(3):
+    for j in range(3):
+        for k in range(3):
+            c[i][j] += a[i][k] * b[k][j]
+
+#59 - Faça uma função que recebe, 2 vetores de 10 elementos inteiros e que retorne o vetor uniao
+
+def uniao_vetores(vetor1,vetor2):
+    vetor1.extend(vetor2)
+    return vetor1
+
+#Exemplos:
+print(uniao_vetores([1,1,0],[4,5]))
+
+#60 - Escreva uma funçao que retorne a primeira posição de uma substring dentro de uma string. Caso a sub string nao seja encontrada, retornar -1
+
+def posicao(string,substring):
+    if substring in string:
+        indice = string.index(substring[0])
+        return indice
+    return -1
+
+#Exemplos:
+print(posicao("Meu nome é João.","é"))
+print(posicao("Meu nome é João","nome"))
+
+#61 - Escreva uma função que compare e retorne verdadeiro caso uma string seja anagrama da outra e falso caso contrario
+
+def detectar_anagrama(string1,string2):
+    
+    Detecta se uma string é anagrama de uma outra string.
+    Recebe 2 parâmetros em formato de string.
+    
+    novastring1 = []
+    novastring2 = []
+    # Armazena as strings em listas
+    for letra in string1:
+        novastring1.append(letra)
+    for letra in string2:
+        novastring2.append(letra)
+
+    # Cada letra de uma string é checada na lista da outra string e 
+    # retirada da lista para não permanecer nas próximas iterações.
+    # Caso a letra não for encontrada, retorna Falso
+    for letra in string1:
+        if letra in novastring2:
+            novastring2.remove(letra)
+        else:
+            return False
+    for letra in string2:
+        if letra in novastring1:
+            novastring1.remove(letra)
+        else:
+            return 2
+    return True
+
+#Exemplos:
+print(detectar_anagrama("abcd","badc"))
+print(detectar_anagrama("bababa","aaabbb"))
+print(detectar_anagrama("aaabbb","aaabb"))
+
+#62 - Crie uma funçao que calcula o comprimento de uma string e que possui a seguinte assinatura void tamanho(char *str,int *strsize)
+
+def tamanho_string(string):
+    strlista = []
+    for letra in string:
+        strlista.append(letra)
+    return len(strlista)
+
+#Exemplos:
+print(tamanho_string("joao"))
+print(tamanho_string("paralelepipedo"))
+print(tamanho_string("O rato roeu a roupa do rei de roma."))
+
+#63 - Crie uma funçao que compara duas strings e que retorna se elas sao iguais ou diferentes
+
+def compara_strings(string1,string2):
+    if string1 == string2:
+        return "Iguais"
+    return "Diferentes"
+
+#Exemplos:
+print(compara_strings("Um","UM"))
+print(compara_strings("Dois","Dois"))
+
+#64 - Receber 2 strings e concatenar
+
+def concatena(string1,string2):
+    string1 += string2
+    return string1
+
+print(concatena("a b","c"))
+
+#65 - Receber duas strings e um valor inteiro positivo. A função concatena nao mais que n caracteres da string2 na string1
+
+def concatena_parcial(string1,string2,n):
+    string1 += string2[0:n]
+    return string1
+
+#Exemplos:
+print(concatena_parcial("Meu nome é ","João Vitor",5))
+
+#66 - Receber um caractere e devolver mauisculo
+
+def maiusculo(string):
+    return string.upper()
+
+print(maiusculo("abcd"))
+
+#67 - Receber um vetor de caracteres e seu tamanho. A funçao devera ler uma string do teclado até que o usuario digite enter ou o tamanho maximo do vetor seja alcançado
+
+#68 - Receber duas strings e retorne a intercalação letra a letra da primeira com a segunda
+
+def intercalacao(string1,string2):
+    string3 = ""
+    compstring3 = 2*len(string1)+2*len(string2)
+    cont = 0
+    i=0
+    j=0
+    while cont<compstring3:
+        if cont%2==0 and i<len(string1):
+            string3+=string1[i]
+            i+=1
+        elif cont%2==1 and j<len(string2):
+            string3+=string2[j]
+            j+=1
+        cont+=1
+    return string3
+
+#Exemplos:
+print(intercalacao("Abcde","fgh"))
+
+#69 - Faça um programa que faça operaçoes simples de fraçoes:
+# Crie e leia duas fraçoes p e q, compostas de numerador e denominador
+# Encontre o maximo divisor comum entre o numerador e denominador e simplifique as fraçoes
+# Apresente a soma, subtraçao, produto e quociente entre as fraçoes
+# OBS: Crie uma funçao para cada item
+
+
+def mdc(a,b):
+    while b!=0:
+        resto = a%b
+        a=b
+        b=resto
+    return a
+
+def mmc(a,b):
+    return (a*b)/mdc(a,b)
+
+def simplifica(num1,den1):
+    return num1/mdc(num1,den1),den1/mdc(num1,den1)
+
+
+def soma_fracoes(num1,den1,num2,den2):
+    m = mmc(den1,den2)
+    n = (m/den1)*num1+(m/den2)*num2
+    return simplifica(n,m)
+
+def subtracao_fracoes(num1,den1,num2,den2):
+    m = mmc(den1,den2)
+    n = (m/den1)*num1-(m/den2)*num2
+    return simplifica(n,m)
+
+def produto_fracoes(num1,den1,num2,den2):
+    return simplifica(num1*num2,den1*den2)
+
+def divisao_fracoes(num1,den1,num2,den2):
+    return simplifica(num1*den2,num2*den1)
+
+#Exemplos:
+print(simplifica(4,10))
+print(simplifica(3,9))
+print(soma_fracoes(4,10,3,9))
+print(subtracao_fracoes(4,10,3,9))
+print(produto_fracoes(4,10,3,9))
+print(divisao_fracoes(4,10,3,9))
+
+#71 - Considere uma grade 2D. Implemente uma função que indique se um ponto p esta localizado dentro ou fora do retangulo. O retangulo é definido por seus vertices inferior esquerdo v1 e superior direito v2. A funçao deve retornar 1 caso o ponto esteja localizado dentro do retangulo e 0 caso contrario
+
+def fora_dentro(v1,v2,p):
+    p1,p2 = p[0],p[1]
+    if v1[0]<=p1<=v2[0] and v1[1]<=p2<=v2[1]:
+        return "Dentro"
+    return "Fora"
+
+#Exemplos:
+print(fora_dentro([1,2],[5,5],[3,3]))
+print(fora_dentro([1,2],[5,5],[0,0]))
+
+#72 - Construa uma funçao para calcular a soma de dois vetores em R3
+
+
+def soma_vetores(v1,v2):
+    v3 = []
+    for i in range(len(v1)):
+        valor = v1[i]+v2[i]
+        v3.append(valor)
+    return v3
+
+#Exemplos:
+print(soma_vetores([1,2],[3,5]))
+print(soma_vetores([1,2,3],[2,2,2]))
+
+#73 - 5 habitantes com caracteristicas sexo, cor dos olhos(A-Azul ou C-Castanhos) cor dos cabelos(L-louros,P - pretos ou c-castanhos) e idade
+# Faça uma funçao que leia esses dados em um vetor
+# Faça uma funçao que determine a media de idade das pessoas com olhos castanhos e cabelos pretos
+# Faça uma funçao que determine e devolva a maior idade entre os habitantes
+# Faça uma funçao que determine a quantidade de individuos do sexo feminino cuja idade esta entre 18 e 35 e que tenham olhos azuis e cabelos louros
+
+pessoa1 = {"sexo":"M","cor_olhos":"C","cor_cabelos":"P","idade":20}
+pessoa2 = {"sexo":"F","cor_olhos":"A","cor_cabelos":"C","idade":26}
+pessoa3 = {"sexo":"F","cor_olhos":"C","cor_cabelos":"P","idade":30}
+pessoa4 = {"sexo":"F","cor_olhos":"A","cor_cabelos":"L","idade":30}
+pessoa5 = {"sexo":"F","cor_olhos":"A","cor_cabelos":"L","idade":18}
+
+
+  
+def imprime_vetor(*args):
+    for dic in args:
+        print(dic)
+
+imprime_vetor(pessoa1,pessoa2,pessoa3,pessoa4,pessoa5)
+
+def media_idade(*args):
+    soma = 0
+    qtd = 0
+    for pessoa in args:
+        if pessoa["cor_olhos"] == "C" and pessoa["cor_cabelos"] == "P":
+            soma += pessoa["idade"]
+            qtd +=1
+    if qtd>1:
+        media = soma/qtd
+    else:
+        media = 0
+    return media
+
+print(media_idade(pessoa1,pessoa2,pessoa3,pessoa4,pessoa5))
+
+def maior_idade(*args):
+    lista = []
+    for pessoa in args:
+        lista.append(pessoa["idade"])
+    return max(lista)
+
+print(maior_idade(pessoa1,pessoa2,pessoa3,pessoa4,pessoa5))
+
+def qtd_individuos(*args):
+    qtd = 0
+    for pessoa in args:
+        if pessoa["sexo"]=="F" and pessoa["cor_olhos"] == "A" and pessoa["cor_cabelos"] == "L" and 18<=pessoa["idade"]<=35:
+            qtd +=1
+    return qtd
+
+print(qtd_individuos(pessoa1,pessoa2,pessoa3,pessoa4,pessoa5))
+
+"""
