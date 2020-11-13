@@ -1,0 +1,1169 @@
+from random import randint
+
+"""
+#1 - Vetor chamado A que armazena 6 números inteiros. O programa deve executar os passos
+     a - Atribuir os valores: 1, 0 ,5, -2, -5, 7
+     b - Armazene em uma variável inteira a soma entre os valores das posicoes a[0], a[1], a[5]
+     c - Modifique o vetor na posicao 4, atribuindo o valor 100
+     d - Mostrar na tela cada valor de a
+
+a = [1, 0, 5, -2, -5, 7]
+
+soma = a[0]+a[1]+a[5]
+print(soma)
+a[4] = 100
+print(a)
+
+#2 - Ler 6 valores inteiros e mostrar na tela os valores lidos
+
+lista =[]
+
+for i in range(6):
+    num = float(input("Digite um número: "))
+    lista.append(num)
+print(lista)
+
+#3 - Ler um conjunto de numeros reais, armazenando em vetor e calcular o quadrado dos componentes deste vetor, armazenando em outro vetor. Os conjuntos tem 10 elementos cada. Imprimir os conjuntos
+
+lista1 = []
+lista2 = []
+
+for i in range(10):
+    num = float(input("Digite um número: "))
+    lista1.append(num)
+    quad = num**2
+    lista2.append(quad)
+
+print(lista1)
+print(lista2)
+
+#4 - Ler um vetor de 8 posiçoes e, em seguida, ler 2 valores x e y quaisquer correspondentes a duas posiçoes do vetor. Ao final, escrever a soma dos valores encontrados nas posiçoes
+
+vetor = input("Digite 8 números separados por espaços: ")
+
+lista = list(vetor.split())
+x = int(input("Digite uma posição do vetor - Número entre 0 e 7: "))
+y = int(input("Digite uma posição do vetor - Número entre 0 e 7: "))
+
+soma = float(lista[x]) + float(lista[y])
+print(f"Posição 1 -> {x} = Valor -> {lista[x]} / Posição 2 -> {y} = Valor -> {lista[y]} / Soma = {soma}")
+
+#5 - Ler um vetor de 10 posiçoes. Contar e escrever quantos valores pares ele possui
+
+lista = input("Digite 8 números separados por espaços: ")
+cont = 0
+
+lista = list(lista.split())
+for i in lista:
+    if int(i)%2==0:
+        print(f"Par = {int(i)}")
+        cont+=1
+print(f"A quantidade de números pares é: {cont}")
+
+#6 - Faça um programa que receba do usuario um vetor com 10 posiçoes. Em seguida deverá ser impresso o maior e menor elemento
+vetor = input("Digite 10 números separados por espaço: ")
+vetor = vetor.split()
+
+for i, valor in enumerate(vetor):
+    vetor[i] = float(vetor[i])
+print(f"Maior valor: {max(vetor)} / Menor valor: {min(vetor)}.")
+
+#7 - Escreva um programa que leia 1O números inteiros e os armazene em um vetor. Imprima o vetor, o maior elemento e a posição que ele se encontra.
+
+vetor = input("Digite 10 números separados por espaço: ")
+
+vetor = vetor.split()
+
+for i, valor in enumerate(vetor):
+    vetor[i] = int(vetor[i])
+print(f"Vetor = {vetor}\nMaior valor = {max(vetor)}\nÍndice do maior valor = {vetor.index(max(vetor))}")
+
+"8. Crie um programa que lê 6 valores inteiros e, em seguida, mostre na tela os valores lidos na ordem inversa.
+
+vetor = input("Digite 6 números separados por espaço: ")
+vetor = vetor.split()
+print(vetor[::-1])
+
+"9. Crie um programa que lê 6 valores inteiros pares e,em seguida, mostre na tela os valores lidos na ordem inversa.
+vetor = input("Digite 6 números separados por espaço: ")
+vetor = vetor.split()
+vetorf = []
+
+for i, valor in enumerate(vetor):
+    vetor[i] = int(vetor[i])
+    if vetor[i]%2==0:
+        vetorf.append(vetor[i])
+print(vetorf[::-1])
+
+"10. Faça um programa para ler a nota da prova de 15 alunos e armazene num vetor,calcule e imprima a média geral."
+notas = []
+
+for i in range(15):
+    nota = float(input("Digite o valor da nota do aluno:"))
+    notas.append(nota)
+print(f"{notas}\nMédia das notas = {sum(notas)/len(notas)}")
+
+"11. Faça um programa que preencha um vetor com 10 números reais, calcule e mostre a quantidade de números negativos e a soma dos números positivos desse vetor."
+vetor = input("Digite 10 números inteiros separados por espaço: ")
+vetor = vetor.split()
+neg = 0
+soma = 0
+for i, valor in enumerate(vetor):
+    vetor[i] = int(vetor[i])
+    if vetor[i]<0:
+        neg+=1
+    elif vetor[i]>0:
+        soma+=vetor[i]
+print(f"Quantidade de negativos: {neg}\nSoma dos positivos: {soma}.")
+
+
+"12. Fazer um programa para ler 5 valores e, em seguida, mostrar todos os valores lidos juntamente com o maior, o menor e a média dos valores."
+lista = []
+
+for i in range(5):
+    num = float(input("Digite um número: "))
+    lista.append(num)
+print(f"Os valores digitados são: {lista}\nO maior valor é = {max(lista)}\nO menor valor é = {min(lista)}\nA média dos valores é {sum(lista)/len(lista)}")
+
+"13. Fazer um programa para ler 5 valores e, em seguida, mostrar a posição onde se encon­tram o maior e o menor valor."
+lista = []
+
+for i in range(5):
+    num = float(input("Digite um número: "))
+    lista.append(num)
+
+print(f"Os valores digitados são: {lista}\nA posição do maior valor é {lista.index(max(lista))}\nA posição do menor valor da lista é {lista.index(min(lista))}")
+
+
+14. Faça um programa que leia um vetor de 1O posições e verifique se existem valores iguais e os escreva na tela.
+
+lista = input("Digite 10 valores separados por espaço: ")
+lista = lista.split()
+
+conj = set(lista)
+lista2 = list(conj)
+
+for i in lista2:
+    lista.remove(i)
+conj2 = set(lista)
+print(conj2)
+
+15. Leia um vetor com 20 números inteiros. Escreva os elementos do vetor eliminando ele­mentos repetidos.
+
+lista = input("Digite 20 valores separados por espaço: ")
+lista = lista.split()
+
+conj = set(lista)
+print(conj)
+
+16. Faça um programa que leia um vetor de 5 posições para números reais e, depois, um código inteiro. Se o código for zero,finalize o programa;se for 1, mostre o vetor na ordem direta;se for 2, mostre o vetor na ordem inversa Caso, o código for diferente de 1 e 2 escreva uma mensagem informando que o código é inválido."
+
+vetor = input("Digite 5 valores separados por espaço: ")
+vetor = vetor.split()
+if len(vetor)== 5:
+    for i, valor in enumerate(vetor):
+        vetor[i] = float(vetor[i])
+    cod = input("Digite um código válido:\n1 - Valores em ordem crescente\n2 - Valores na ordem decrescente\n0 - Finalizar programa\n")
+    if cod == "1":
+        vetor.sort()
+        print(vetor)
+    elif cod == "2":
+       vetor.sort(reverse=True)
+       print(vetor)
+    elif cod == "0":
+        print("Finalizando programa..")
+    else:
+        print("Código informado é inválido.")
+else:
+    print("Verifique se a inserção dos dados são 5 valores separados por espaços.")
+
+17. Leia um vetor de 10 posições e atribua valor O para todos os elementos que possuírem valores negativos .
+vetor = input("Digite 10 valores separados por espaços: ")
+vetor = vetor.split()
+
+for i, valor in enumerate(vetor):
+    vetor[i] = float(vetor[i])
+    if vetor[i]<0:
+        vetor[i] = 0
+
+print(vetor)
+
+18. Faça um programa que leia um vetor de 1O números. Leia um número x . Conte os múltiplos de um número inteiro x num vetor e mostre-os na tela.
+lista = []
+x = int(input("Digite um número: "))
+mult = 1
+for i in range(1,11):
+    mult = x*i
+    lista.append(mult)
+print(f"Os 10 primeiros múltiplos de {x} são: {lista}")
+
+"19. Faça um vetor de tamanho 50 preenchido com o seguinte valor : (i + 5 *i)%(i + 1), sendo i a posição do elemento no vetor. Em seguida imprima o vetor na tela.
+lista = []
+for i in range(50):
+    lista.append((i+5*i)%(i+1))
+print(lista)
+
+"20. Escreva um programa que leia números inteiros no intervalo [0,50] e os armazene em um vetor com 1O posições. Preencha um segundo vetor apenas com os números impares do primeiro vetor. Imprima os dois vetores, 2 elementos por linha."
+
+lista1 = []
+lista2 = []
+
+for i in range(10):
+    num = float(input("Digite um número entre 0 e 50: "))
+    if 0<=num<=50:
+        lista1.append(num)
+        if num%2==1:
+            lista2.append(num)
+    else:
+        print("O número escolhido não está no intervalo.")
+
+for i in range(0,10,2):
+    print(lista1[i],lista1[i+1])
+if len(lista2)%2==0:
+    for j in range(0,len(lista2),2):
+        print(lista2[j],lista2[j+1])
+else:
+    for j in range(0,len(lista2)-1,2):
+        print(lista2[j],lista2[j+1])
+    print(lista2[-1])
+
+"21. Faça um programa que receba do usuário dois vetores,A e B, com 1O números inteiros cada. Crie um novo vetor denominado C calculando C = A - B. Mostre na tela os dados do vetor e."
+
+vetor1 = input("Digite 10 valores separados por espaço: ")
+vetor2 = input("Digite 10 valores separados por espaço: ")
+vetor3 = []
+
+vetor1 = vetor1.split()
+vetor2 = vetor2.split()
+if len(vetor1)==10 and len(vetor2)==10:
+    for i in range(10):
+        vetor1[i] = float(vetor1[i])
+        vetor2[i] = float(vetor2[i])
+        vetor3.append(vetor1[i]-vetor2[i])
+    print(vetor3)
+else:
+    print("Verifique se foi inserido corretamente 10 valores para cada vetor.")
+
+"22. Faça um programa que leia dois vetores de 1O posições e calcule outro vetor contendo, nas posições pares os valores do primeiro e nas posições impares os valores do se­gundo.
+
+vetor1 = input("Digite 10 valores separados por espaço: ")
+vetor2 = input("Digite 10 valores separados por espaço: ")
+vetor3 = []
+
+vetor1 = vetor1.split()
+vetor2 = vetor2.split()
+
+for i in range(10):
+    if i%2==0:
+        vetor3.append(int(vetor1[i]))
+    else:
+        vetor3.append(int(vetor2[i]))
+print(vetor3)
+
+"23. Ler dois conjuntos de números reais, armazenando-os em vetores e calcular o produto escalar entre eles. Os conjuntos têm 5 elementos cada. Imprimir os dois conjuntos e o produto escalar, sendo que o produto escalar é dado por : x1 * y1 + x 2 * m + ...+ 1:,. * y ,,."
+
+vetor1 = input("Digite 5 valores separados por espaço: ")
+vetor2 = input("Digite 5 valores separados por espaço: ")
+vetor3 = []
+
+vetor1 = vetor1.split()
+vetor2 = vetor2.split()
+
+for i in range(5):
+    vetor1[i] = int(vetor1[i])
+    vetor2[i] = int(vetor2[i])
+    vetor3.append(vetor1[i]*vetor2[i])
+print(f"O produto escalar de {vetor1} por {vetor2} é {sum(vetor3)}.")
+
+"24. Faça um programa que leia dez conjuntos de dois valores, o primeiro representando o número do aluno e o segundo representando a sua altura em metros. Encontre o aluno mais baixo e o mais alto. Mostre o número do aluno mais baixo e do mais alto, juntamente com suas alturas.
+
+tabela1 = []
+tabela2 = []
+
+
+for i in range(10):
+    ent = input("Digite o número do aluno e a altura em metros separados por espaço: ")
+    ent = ent.split()
+    ent[0] = float(ent[0])
+    ent[1] = float(ent[1])
+    tabela1.append(ent[0])
+    tabela2.append(ent[1])
+
+max = max(tabela2)
+indice = tabela2.index(max)
+print(f"O aluno mais alto tem número {tabela1[indice]} e tem altura {max}")
+
+25. Faça um programa que preencha um vetor de tamanho 100 com os 100 primeiros natu­rais que não são múltiplos de 7 ou que terminam com 7.
+
+vetor = []
+num = 0
+
+while len(vetor) <100:
+    num+=1
+    if num%7!=0 and str(num)[-1]!="7":
+        vetor.append(num)
+
+print(vetor)
+
+"26. Faça um programa que calcule o desvio padrão de um vetor v contendo 11 = 10 números, onde 1n é a media do vetor."
+Desv io Padrão =
+"1   
+n _ 1L(v[i] - n1)2l.=1
+
+vetor = input("Digite 10 números separados por espaço: ")
+vetor = vetor.split()
+for i in range(len(vetor)):
+    vetor[i] = float(vetor[i])
+
+media = sum(vetor)/len(vetor)
+
+vetor2 = []
+
+for i in range(len(vetor)):
+    valor = (vetor[i] - media)**2
+    vetor2.append(valor)
+
+dvpd = (sum(vetor2)/(len(vetor)-1))**0.5
+print(f"O desvio padrão de {vetor} é {dvpd}.")
+
+27. Leia 10 números inteiros e armazene em um vetor.  Em seguida escreva os elementos que são primos e suas respectivas posições no vetor.
+
+vetor = input("Digite 10 números inteiros: ")
+vetor = vetor.split()
+primos = []
+
+for i in range(len(vetor)):
+    cont = 0
+    vetor[i] = int(vetor[i])
+    for j in range(1,vetor[i]+1):
+        if vetor[i]%j==0:
+            cont+=1
+            if cont>2:
+                break
+    if cont==2:
+        primos.append([i,vetor[i]])
+print(primos)
+
+28. Leia 10 números inteiros e armazene em um vetor v. Crie dois novos vetores vl e v2 .Copie os valores ímpares de v para vl, e os valores pares de v para v2 . Note que cada um dos vetores vl e u2 têm no máximo 10 elementos, mas nem todos os elementos são utilizados. No final escreva os elementos UTILIZADOS de vl e v2."
+
+
+v = input("Digite 10 números inteiros separados por espaço: ")
+v = v.split()
+v1 = []
+v2 = []
+
+for i in range(len(v)):
+    v[i] = int(v[i])
+    if v[i]%2==0:
+        v1.append(v[i])
+    else:
+        v2.append(v[i])
+print(f"Pares = {v1} / Ímpares = {v2}")
+
+#29 - Receber 6 números inteiros e mostrar os pares digitados, a soma dos pares, os impares e a quantidade de impares digitados
+
+vetor = input("Digite 6 valores inteiros separados por espaço: ")
+vetor = vetor.split()
+pares = []
+impares = []
+
+for i in range(len(vetor)):
+    vetor[i] = int(vetor[i])
+    if vetor[i]%2==0:
+        pares.append(vetor[i])
+    else:
+        impares.append(vetor[i])
+print(f"Pares = {pares} / Soma dos pares = {sum(pares)}.")
+print(f"Ímpares = {impares} / Quantidade de ímpares = {len(impares)}.")
+
+#30 - Ler 2 vetores de 10 elementos. Criar um vetor que seja a interseçao entre os 2 vetores, ou seja, que contem apenas os numeros que estao em ambos os vetores
+
+vetor1 = input("Digite 10 valores separados por espaço: ")
+vetor2 = input("Digite 10 valores separados por espaço: ")
+vetor1 = set(vetor1.split())
+vetor2 = set(vetor2.split())
+
+vetor3 = vetor1.intersection(vetor2)
+print(f"A interseção de {vetor1} com {vetor2} é {vetor3}.")
+
+#31 - Ler 2 vetores de 10 elementos. Criar um vetor que seja a uniao entre os 2 vetores anteriores, ou seja, contem os numeros dos 2 vetores
+
+vetor1 = input("Digite 10 valores separados por espaço: ")
+vetor2 = input("Digite 10 valores separados por espaço: ")
+vetor1 = set(vetor1.split())
+vetor2 = set(vetor2.split())
+
+vetor3 = vetor1.union(vetor2)
+print(f"A união de {vetor1} com {vetor2} é {vetor3}.")
+
+#32 - Ler 2 vetores de inteiros x e y, cada um com 5 elementos. Faça: Soma entre x e y, produto de x e y, diferença entre x e y, interseçao entre x e y, uniao entre x e y
+
+vetor1 = input("Digite 5 valores separados por espaço: ")
+vetor2 = input("Digite 5 valores separados por espaço: ")
+vetor1 = vetor1.split()
+vetor2 = vetor2.split()
+soma = []
+produto = []
+diferenca = []
+
+for i in range(len(vetor1)):
+    vetor1[i] = int(vetor1[i])
+    vetor2[i] = int(vetor2[i])
+    soma.append(vetor1[i]+vetor2[i])
+    produto.append(vetor1[i]*vetor2[i])
+    diferenca.append(vetor1[i]-vetor2[i])
+
+print(f"Vetor 1 = {vetor1}\nVetor 2 = {vetor2}\nSoma = {soma}\nProduto = {produto}\nDiferença = {diferenca}")
+
+vetor1 = set(vetor1)
+vetor2 = set(vetor2)
+intersecao = vetor1.intersection(vetor2)
+uniao = vetor1.union(vetor2)
+
+print(f"Interseção = {intersecao}\nUnião = {uniao}")
+
+#33 - Ler um vetor de 15 posições e compactar e elimine posiçoes com valor 0
+
+vetor = input("Digite 15 números separado por espaço: ")
+vetor = vetor.split()
+
+for i in range(len(vetor)):
+    vetor[i] = float(vetor[i])
+
+while 0 in vetor:
+    vetor.remove(0)
+print(vetor)
+
+#34 - Ler 10 números diferentes. Pedir ao usuario para reinserir um numero caso ja o tenha no vetor
+
+vetor = []
+
+while len(vetor) <10:
+    num = float(input("Digite um número: "))
+    if num in vetor:
+        print("Número já está no vetor.")
+    else:
+        vetor.append(num)
+
+print(vetor)
+
+#35 - Ler 2 numeros a e b positivos e menores que 10000 e: Criar um vetor onde cada posição é um algarismo do numero. A primeira posiçao é o algarismo menos significativo / Crie um vetor que seja a soma de a e b, mas faça-o usando apenas os vetores construidos anteriormente
+
+a = input("Digite um número positivo menor que 10000: ")
+b = input("Digite um número positivo menor que 10000: ")
+soma=[0,0,0,0,0]
+if 0<int(a)<10000 and 0<int(b)<10000:
+    a = list(a)
+    b = list(b)
+    a.reverse()
+    b.reverse()
+    while len(a)!=5:
+        a.append(0)
+    while len(b)!=5:
+        b.append(0)
+    print(a,b)
+    for i in range(len(b)):
+        valor = int(a[i])+int(b[i])
+        if valor>=10:
+            valor-=10
+            soma[i]+=valor
+            soma[i+1]+=1
+        else:
+            soma[i]+=valor
+    print(soma)
+
+else:
+    print("Os números digitados são inválidos.")
+
+#36 - Ler 10 numeros reais, ordenar os elementos e escrever os elementos do vetor ordenado
+
+vetor = input("Digite 10 números reais separados por espaço: ")
+vetor = vetor.split()
+
+for i in range(len(vetor)):
+    vetor[i] = float(vetor[i])
+vetor.sort()
+print(vetor)
+
+#37 - Considere um vetor A com 11 elementos onde A1<A2<...<A6>A7>...>A11, ou seja, será ordenado em ordem crescente até o sexto e depois em ordem decrescente. Dado o vetor, proponha um algoritmo para ordenar os elementos
+
+
+a = input("Digite 11 valores separados por espaço: ")
+a = a.split()
+a1 = []
+b = []
+
+for i in range(len(a)):
+    a[i] = float(a[i])
+
+a.sort()
+for i in range(6):
+    b.append(a[2*i])
+    if 2*i+1<len(a):
+        a1.append(a[2*i+1])
+a1.reverse()
+b = b+a1
+print(b)
+
+#38 - Ler 10 valores e ordenar em ordem crescente, ordenar assim que ele for guardado e mostrar em ordem ao final
+
+
+a=[]
+
+while len(a)<10:
+    num = float(input("Digite um número: "))
+    a.append(num)
+    a.sort()
+    print(a)
+
+#39 - Ler um inteiro positivo n e em seguida imprimir n linhas do triangulo de pascal
+
+
+n = int(input("Digite a quantidade de linhas: "))
+
+lista = [[1],[1,1]]
+for i in range(1,n):
+    linha = [1]
+    for j in range(0,len(lista[i])-1):
+        linha += [ lista[i][j] + lista[i][j+1] ]
+    linha += [1]
+    lista += [linha]
+for i in lista:
+    print(i)
+
+---------------------------------------------------
+Matrizes
+---------------------------------------------------
+
+#1 - Ler uma matriz 4x4 e escrever quantos valores maiores que 10 ela possui
+
+matriz = []
+cont = 0
+
+for i in range(4):
+    linha = []
+    print(f"Digite os valores da {i+1}ª linha: ")
+    for j in range(4):
+        num = float(input("Digite um número: "))
+        if num>10:
+            cont+=1
+        linha.append(num)
+    matriz.append(linha)
+
+print(f"Matriz = {matriz} / Números maiores que 10: {cont}")
+
+#2 - Ler uma matriz 5x5. Preencher com 1 a diagonal principal e 0 os demais elementos
+
+matriz = []
+
+for i in range(5):
+    linha = []
+    for j in range(5):
+        if i==j:
+            valor = 1
+        else:
+            valor = 0
+        linha.append(valor)
+    matriz.append(linha)
+print(matriz)
+
+#3 - Preencha uma matriz 4x4 com o produto do valor da linha e da coluna de cada elemento
+
+#4 - Ler uma matriz 4x4 e imprimir a matriz e a localização do maior valor
+
+matriz = []
+
+maxvet = []
+indice = []
+
+for i in range(4):
+    linha = input("Digite 4 valores separados por espaços: ")
+    linha = linha.split()
+    for j in range(len(linha)):
+        linha[j] = float(linha[j])
+    maximo = max(linha)
+    maxvet.append(maximo)
+    matriz.append(linha)
+
+maximo = max(maxvet)
+for i, row in enumerate(matriz):
+    if maximo in row:
+        posicao = [i,row.index(maximo)]
+    indice.append(posicao)
+print(f"Matriz = {matriz} / Máximo = {maximo} / Posição = {indice}")
+
+#5 - Ler uma matriz 5x5 e um valor X. Deverá procurar o valor na matriz e escrever a localizaçao ou se nao foi encontrado
+
+
+a = []
+print("Insira a matriz: ")
+for i in range(5):
+    linha = input("Digite uma linha da matriz (5 valores separados por espaços): ")
+    linha = linha.split()
+    for j in range(5):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+x = float(input("Digite um número para procurar na matriz: "))
+
+encontrado = False
+indice = []
+for i in range(5):
+    for j in range(5):
+        if (a[i][j])==x:
+            indice = [i,j]
+            print(f"Encontrado / Localização = {indice}")
+            encontrado = True
+            break
+if encontrado == False:
+    print("Não encontrado")
+
+#6 - Ler duas matrizes 4x4 e escreva uma terceira com os maiores valores de cada posicao das matrizes lidas
+
+
+a = []
+b = []
+c = []
+print("Insira as linhas da matriz A:")
+for i in range(4):
+    linha = input(f"Digite a {i+1}ª linha(4 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(4):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+print("Insira as linhas da matriz B:")
+for i in range(4):
+    linha = input(f"Digite a {i+1}ª linha(4 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(4):
+        linha[j] = float(linha[j])
+    b.append(linha)
+
+for i in range(4):
+    linha = []
+    for j in range(4):
+        if a[i][j]>=b[i][j]:
+            linha.append(a[i][j])
+        else:
+            linha.append(b[i][j])
+    c.append(linha)
+
+print(a)
+print(b)
+print(c)
+
+#7 - Gerar e imprimir uma matriz de tamanho 10x10 onde os elementos sao da forma A[i][j] = 2i+7j se i<j / A[i][j] = 3i²-1 se i=j / A[i][j] = 4i³-5j²+1 se i>j
+
+
+a = []
+
+for i in range(10):
+    linha = []
+    for j in range(10):
+        if i<j:
+            valor = 2*i+7*j
+        elif i==j:
+            valor = 3*(i**2)-1
+        else:
+            valor = 4*(i**3)-5*(j**2)+1
+        linha.append(valor)
+    a.append(linha)
+
+print(a)
+
+#8 - Ler uma matriz de 3x3 elementos e calcular a soma dos elementos acima da diagonal principal
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz(3 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+soma = 0
+
+for i in range(3):
+    for j in range(3):
+        if j>i:
+            soma+=a[i][j]
+print(soma)
+
+
+#9 - Ler uma matriz de 3x3 elementos e calcular a soma dos elementos abaixo da diagonal principal
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz(3 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+soma = 0
+
+for i in range(3):
+    for j in range(3):
+        if i>j:
+            soma+=a[i][j]
+print(soma)
+
+#10 - Ler uma matriz de 3x3 elementos e calcular a soma dos elementos que estao na diagonal principal
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz(3 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+soma = 0
+
+for i in range(3):
+    for j in range(3):
+        if i==j:
+            soma+=a[i][j]
+print(soma)
+
+#11 - Ler uma matriz de 3x3 elementos e calcular a soma dos elementos que estão na diagonal secundária
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz(3 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+soma = 0
+l = 0
+c = 2
+while l < 3:
+    soma += a[l][c]
+    l+=1
+    c-=1
+print(soma)
+
+#12 - Ler uma matriz de 3x3 elementos e calcular sua transposta
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz(3 valores separados por espaço): ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+b = [[0,0,0],[0,0,0],[0,0,0]]
+
+for i in range(3):
+    for j in range(3):
+        b[i][j] = a[j][i]
+
+print(b)
+
+#13 - Gerar uma matriz 4x4 com valores no intervalo [1,20]. Escrever um programa que transforme a matriz gerada numa matriz triangular inferior, ou seja, 0 nos elementos acima da diagonal principal
+
+a = []
+
+for i in range(4):
+    linha = []
+    for j in range(4):
+        valor = randint(1,20)
+        linha.append(valor)
+    a.append(linha)
+
+print(a)
+
+for i in range(4):
+    for j in range(4):
+        if i<j:
+            a[i][j]=0
+
+print(a)
+
+#14 - Gerar automaticamente numeros entre 0 e 99 de uma cartela de bingo. Sabendo que cada cartela deverá conter 5 linhas de 5 numeros, gere estes dados de modo a nao ter numeros repetidos dentro das cartelas. O programa deve exibir na tela a cartela gerada
+
+
+
+a = []
+valores = set({})
+
+for i in range(5):
+    linha = []
+    for j in range(5):
+        valor = randint(0,99)
+        while valor in valores:
+            valor = randint(0,99)
+        valores.add(valor)
+        linha.append(valor)
+    a.append(linha)
+print(a)
+
+
+#15 - Ler uma matriz 5x10 que se refere resposta de 10 questoes de multipla escolha, referente a 5 alunos. Ler tambem um vetor de 10 posiçoes contendo o gabarito de
+# respostas que podem ser a, b, c ou d. O programa deve comparar as respostas de cada candidato com o gabarito e emitir um vetor denomidado resultado
+# contendo a pontuaçao correspondente a cada aluno.
+
+a = []
+
+for i in range(5):
+    linha = input(f"Digite as respostas das 10 questões do {i+1}º aluno(Letras separadas por espaços): ")
+    linha = linha.split()
+    a.append(linha)
+
+gabarito = input(f"Digite o gabarito das 10 questões(letras separadas por espaços): ")
+gabarito = gabarito.split()
+
+notas = []
+
+for i in range(5):
+    nota = 0
+    for j in range(10):
+        if a[i][j]==gabarito[j]:
+            nota+=1
+    notas.append(nota)
+
+print(notas)
+
+#16 - Faça um programa para corrigir uma prova de multipla escolha com 10 questoes em uma
+# turma com 3 alunos. Cada questão vale um ponto. Leia o gabarito e para cada aluno leia sua
+# matrícula e suas respostas. Calcule e escreva: Para cada aluno, sua matrícula, suas respostas e nota
+# O percentual de aprovação, assumindo média 7
+
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a matrícula e as 10 respostas do {i+1}º aluno: ")
+    linha = linha.split()
+    a.append(linha)
+
+gabarito = input("Digite o gabarito da prova: ")
+gabarito = gabarito.split()
+gabarito = ["matricula"] + gabarito
+
+saida = []
+
+for i in range(3):
+    nota = 0
+    linha = []
+    for j in range(11):
+        if a[i][j] == gabarito[j]:
+            nota+=1
+    linha.append(a[i][0])
+    linha.append(a[i][1:12])
+    linha.append(nota)
+    linha.append(f"{nota*10}%")
+    saida.append(linha)
+
+for i in range(3):
+    print(saida[i])
+
+#17 - Leia uma matriz 10x3 com notas de 10 alunos em 3 provas. Em seguida, escreva o número de alunos cuja pior 
+# nota foi na prova 1, o número de alunos cuja pior nota foi na prova 2, e o numero de alunos
+# cuja nota foi pior na prova 3. Em caso de empate das piores notas de um aluno, o critério de desempate é arbitrario
+# mas o aluno deve ser contabilizado apenas uma vez
+
+
+a = []
+
+for i in range(10):
+    linha = input(f"Digite as notas das 3 provas do {i+1}º aluno: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = int(linha[j])
+    a.append(linha)
+
+pior1 = 0
+pior2 = 0
+pior3 = 0
+
+for i in range(10):
+    if min(a[i])==a[i][0]:
+        pior1+=1
+    elif min(a[i])==a[i][1]:
+        pior2 +=1
+    elif min(a[i])==a[i][2]:
+        pior3+=1
+print(pior1,pior2,pior3)
+
+#18 - Faça um programa que permita um usuário entrar com uma matriz 3x3 de numeros inteiros. Em seguida, gere um array
+# unidimensional pela soma dos numeros de cada coluna da matriz e mostre na tela esse array
+
+
+a = []
+
+for i in range(3):
+    linha = input("Digite a {i+1}ª linha da matriz: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = int(linha[j])
+    a.append(linha)
+
+somas = []
+
+for i in range(3):
+    soma = 0
+    for j in range(3):
+        soma +=a[j][i]
+    somas.append(soma)
+
+print(somas)
+
+#19 - Faça um programa que leia uma matriz 5x4 contendo as seguintes informaçoes sobre alunos de uma disciplina, inf do tipo inteiro
+# Primeira coluna: Número de matricula
+# Segunda coluna: média das provas
+# Terceira coluna: média dos trabalhos
+# Quarta coluna: nota final
+#
+# Elabore um programa que: Leia as 3 primeiras informaçoes de cada aluno
+# Calcule a nota final como sendo a soma da media das provas e da media dos trabalhos
+# Imprima a matricula do aluno que obteve a maior nota final
+# Imprima a média aritmetica das notas finais
+
+
+a = []
+notasf = []
+
+for i in range(5):
+    linha = input(f"Digite a matrícula, a média das provas e a média dos trabalhos do {i+1}º aluno: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = int(linha[j])
+    notaf = linha[1]+linha[2]
+    notasf.append(notaf)
+    linha.append(notaf)
+    a.append(linha)
+
+print(a)
+indice = notasf.index(max(notasf))
+print(a[indice][0])
+print(sum(notasf)/5)
+
+#20 - Ler uma matriz 3x6 com valores reais
+# Imprimir a soma de todos os elementos das colunas impares
+# Imprimir a media aritmetica dos elementos da segunda e quarta colunas
+# Substitua os valores da sexta coluna pela soma dos valores das colunas 1 e 2
+# Imprima a matriz modificada
+
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz: ")
+    linha = linha.split()
+    for j in range(6):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+
+print(a)
+
+soma = 0
+somamed = 0
+for i in range(3):
+    for j in range(6):
+        if j%2==0:
+            soma+=a[i][j]
+        if j == 1 or j == 3:
+            somamed += a[i][j]
+        if j == 5:
+            a[i][j] = a[i][0] + a[i][1]
+
+print(soma)
+print(somamed/6)
+print(a)
+
+#21 - Faça um programa que leia duas matrizes 2x2 com valores reais. Ofereça ao usuário um menu de opçoes
+# Somar as duas matrizes
+# Subtrair a primeira matriz da segunda
+# Adicionar uma constante às duas matrizes
+# Imprimir as duas matrizes
+# Nas duas primeiras opções uma terceira matriz 2x2 deve ser criada. Na terceira opçao o valor da constante deve ser lido e
+# o resulltado da adição da constante deve ser armazenado na propria matriz
+
+
+a = []
+b = []
+
+for i in range(2):
+    linha = input(f"Digite a {i+1}ª linha da matriz a: ")
+    linha = linha.split()
+    for j in range(2):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+
+for i in range(2):
+    linha = input(f"Digite a {i+1}ª linha da matriz b: ")
+    linha = linha.split()
+    for j in range(2):
+        linha[j] = float(linha[j])
+    b.append(linha)
+
+opcao = input("Escolha uma opção:\n1 - Somar as matrizes\n2 - Subtrair a primeira pela segunda\n3 - Adicionar uma constante as matrizes\n4 - Imprimir as duas matrizes\n")
+
+if opcao == "1":
+    c = [[0,0],[0,0]]
+    for i in range(2):
+        for j in range(2):
+            c[i][j] = a[i][j] + b[i][j]
+    print(c)
+elif opcao == "2":
+    c = [[0,0],[0,0]]
+    for i in range(2):
+        for j in range(2):
+            c[i][j] = a[i][j] - b[i][j]
+    print(c)
+elif opcao == "3":
+    const = float(input("Escolha uma constante a ser adicionada: "))
+    for i in range(2):
+        for j in range(2):
+            a[i][j] += const
+            b[i][j] += const
+    print(a)
+    print(b)
+elif opcao == "4":
+    print(a)
+    print(b)
+else:
+    print("Opção inválida!")
+
+#22 - Faça um programa que leia duas matrizes A e B 3x3 e calcule C = A*B
+
+
+a = []
+b = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz a: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz b: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    b.append(linha)
+
+c = [[0,0,0],[0,0,0],[0,0,0]]
+
+for i in range(3):
+    for j in range(3):
+        for k in range(3):
+            c[i][j] += a[i][k] * b[k][j]
+
+print(c)
+
+#23 - Faça um programa que leia uma matriz A 3x3 e calcule B = A²
+
+
+a = []
+
+for i in range(3):
+    linha = input(f"Digite a {i+1}ª linha da matriz a: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = float(linha[j])
+    a.append(linha)
+
+b = [[0,0,0],[0,0,0],[0,0,0]]
+
+for i in range(3):
+    for j in range(3):
+        for k in range(3):
+            b[i][j] += a[i][k] * a[k][j]
+
+print(b)
+
+#24 - Na matriz 20x20, qual o maior produto de quatro numeros adjacentes em qualquer direção(cima,baixo,esquerda,direita, ou diagonal)?
+
+
+a=[[8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8],[49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,4,56,62,0],
+   [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,3,49,13,36,65],[52,70,95,23,4,60,11,42,69,24,68,56,1,32,56,71,37,2,36,91],
+   [22,31,16,71,51,67,63,89,41,92,36,54,22,40,40,28,66,33,13,80],[24,47,32,60,99,3,45,2,44,75,33,53,78,36,84,20,35,17,12,50],
+   [32,98,81,28,64,23,67,10,26,38,40,67,59,54,70,66,18,38,64,70],[67,26,20,28,2,62,12,20,95,63,94,39,63,8,40,91,66,49,94,21],
+   [24,55,58,5,66,73,99,26,97,17,78,78,96,83,14,88,34,89,63,72],[21,36,23,9,75,0,76,44,20,45,35,14,0,61,33,97,34,31,33,95],
+   [78,17,63,28,22,75,31,67,15,94,3,80,4,62,16,14,9,53,56,92],[16,39,5,42,96,35,31,47,55,58,88,24,0,17,54,24,36,29,85,57],
+   [86,56,0,48,35,71,89,7,5,44,44,37,44,60,21,58,51,54,17,58],[19,80,81,68,5,94,47,69,28,73,92,13,86,52,17,77,4,89,55,40],
+   [4,52,8,83,97,35,99,16,7,97,57,32,16,26,26,79,33,27,98,66],[88,36,68,87,57,62,20,72,3,46,33,67,46,55,12,32,63,93,53,69],
+   [4,42,16,73,387,25,39,11,24,94,72,18,8,46,29,32,40,62,76,36],[20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74,4,36,16],
+   [20,73,35,29,78,31,90,1,74,31,49,71,48,86,81,16,23,57,5,54],[1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48]]
+n = int(input("Digite o número de linhas e colunas da matriz: "))
+maximo = []
+for i in range(n):
+    for j in range(n):
+       if j+1<n and j+2<n and j+3<n:
+           mult = a[i][j]*a[i][j+1]*a[i][j+2]*a[i][j+3]
+           maximo.append(mult)
+
+for i in range(n):
+    for j in range(n):
+        if j+1<n and j+2<n and j+3<n:
+            mult = a[j][i]*a[j+1][i]*a[j+2][i]*a[j+3][i]
+            maximo.append(mult)
+
+for i in range(n):
+    for j in range(n):
+        if j+1<n and j+2<n and j+3<n and i+1<n and i+2<n and i+3<n:
+            mult = a[i][j]*a[i+1][j+1]*a[i+2][j+2]*a[i+3][j+3]
+            maximo.append(mult)
+
+for i in range(19,0,-1):
+    for j in range(n):
+        if j+1<n and j+2<n and j+3<n and i-1>0 and i-2>0 and i-3>0:
+            mult = a[i][j]*a[i-1][j+1]*a[i-2][j+2]*a[i-3][j+3]
+            maximo.append(mult)
+
+valor = max(maximo)
+print(valor)
+
+#25 - Faça um programa para determinar a proxima jogada em um jogo da velha. Assumir que o tabuleiro é representado por uma matriz 3x3, onde cada posição representa uma das casas do tabuleiro. 
+# A matriz pode conter os seguintes valores -1, 0, 1 representando respectivamente uma casa contendo uma peça minha(-1), uma casa vazia do tabuleiro (0), e uma casa contendo uma peça do meu oponente(1).
+
+
+a = []
+
+for i in range(3):
+    linha = input("Digite a {i+1}ª linha da matriz: ")
+    linha = linha.split()
+    for j in range(3):
+        linha[j] = int(linha[j])
+    a.append(linha)
+
+x = 0
+o = 0
+
+for i in range(3):
+    for j in range(3):
+        if a[i][j] == -1:
+            x += 1
+        elif a[i][j] == 1:
+            o += 1
+
+if x>o:
+    # x começou -1 -> 1 é proximo a jogar
+    jogada = 1
+elif x<o:
+    # o começou 1 -> -1 é proximo a jogar
+    jogada = -1
+elif x==o:
+    # perguntar quem começou para ser i proximo a jogar.
+    jogada = int(input("Digite quem começou a jogar (-1 ou 1): "))
+
+for i in range(3):
+    for j in range(3):
+        
+
+"""
