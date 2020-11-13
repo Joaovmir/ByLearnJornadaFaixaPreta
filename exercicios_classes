@@ -1,0 +1,455 @@
+"""
+#1 - Crie uma classe para representar uma pessoa, com os atributos privados de nome, idade e altura. Crie os metodos publicos necessarios para sets e gets e tambem 
+# um metodo para imprimir os dados de uma pessoa
+
+class Pessoa:
+    def __init__(self, nome, idade, altura):
+        self.__nome = nome
+        self.__idade = idade
+        self.__altura = altura
+
+    def imprime_dados(self):
+        return self.__dict__
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def idade(self):
+        return self.__idade
+
+    @property
+    def altura(self):
+        return self.__altura
+
+
+pes1 = Pessoa("Joao",24,1.75)
+
+print(pes1.imprime_dados())  
+
+#2 - Crie uma classe Agenda que pode armazenar 10 pessoas e seja capaz de realizar as seguintes operaçoes:
+# Armazena pessoa com nome, idade e altura
+# remove pessoa atraves do nome
+# busca pessoa atravez do nome, mostra a posiçao da agenda
+# imprimir agenda: todas as pessoas da agenda
+# imprimir pessoa, todos os dados da pessoa na posicao i
+
+
+class Agenda:
+    
+    contador = 1
+    pessoas = []
+
+    def __init__(self, nome, idade, altura):
+        self.posicao = Agenda.contador
+        self.nome = nome
+        self.idade = idade
+        self.altura = altura
+        Agenda.contador +=1
+        Agenda.pessoas.append(self.__dict__)
+
+    @classmethod
+    def remove_pessoa(cls, name):
+        for pessoa in cls.pessoas:
+            if pessoa["nome"] == name:
+                cls.pessoas.remove(pessoa)
+    
+    @classmethod
+    def busca_pessoa(cls, name):
+        for pessoa in cls.pessoas:
+            if pessoa["nome"] == name:
+                return print(pessoa["posicao"])
+
+    @classmethod
+    def imprimir_agenda(cls):
+        return print(cls.pessoas)
+
+    @classmethod
+    def imprimir_pessoa(cls, pos):
+        return print(cls.pessoas[pos])
+
+
+pes1 = Agenda("João",23,1.75)
+pes2 = Agenda("Val",59,1.60)
+pes3 = Agenda("Carlos",32,1.70)
+
+Agenda.imprimir_agenda()
+Agenda.remove_pessoa("Carlos")
+Agenda.imprimir_agenda()
+Agenda.busca_pessoa("Val")
+Agenda.imprimir_pessoa(0)
+
+#3 - Crie uma classe denominada Elevador para armaznar as informaçoes de um elevador dentro de um predio. A classe deve armazenar o andar atual (terreo = 0), total de andares no predio, 
+# excluindo o terreo, capacidade do elevador, e quantas pessoas estao presentes nele
+
+# A classe deve tambem disponibilizar os seguintes metodos:
+# Inicializa: que recebe a capacidade do elevador e o total de andares no predio
+# Entra: para acrescentar uma pessoa no elevador
+# Sai: para remover uma pessoa do elevador
+# Sobe: para subir um andar
+# Desce para descer um andar
+# Encapsular todos os atributos de classe
+
+
+class Elevador:
+
+    def __init__(self, total_andares, capacidade):
+        self.__andar = 0
+        self.__num_pessoas = 0
+        self.__total_andares = total_andares
+        self.__capacidade = capacidade
+        
+    def entra(self):
+        if self.__num_pessoas < self.__capacidade:
+            self.__num_pessoas += 1
+            print(f"Número de pessoas no elevador: {self.__num_pessoas}/{self.__capacidade}")
+        else:
+            print("O elevador está cheio, não entrou ninguém.")
+
+    def sai(self):
+        if self.__num_pessoas > 0:
+            self.__num_pessoas -= 1
+            print(f"Número de pessoas no elevador: {self.__num_pessoas}/{self.__capacidade}")
+        else:
+            print("O elevador está vazio, não saiu ninguém.")
+
+    def sobe(self):
+        if self.__andar < self.__total_andares:
+            self.__andar += 1
+            print(f"Andar atual do elevador: {self.__andar}/{self.__total_andares}")
+        else:
+            print("O elevador já está no andar máximo.")
+
+    def desce(self):
+        if self.__andar > 0:
+            self.__andar -= 1
+            print(f"Andar atual do elevador: {self.__andar}/{self.__total_andares}")
+        else:
+            print("O elevador já está no andar mímino.")
+
+
+
+elev1 = Elevador(5,6)
+elev2 = Elevador(40,8)
+
+print(elev1.__dict__)
+print(elev2.__dict__)
+
+elev1.entra()
+elev1.entra()
+elev1.entra()
+elev1.entra()
+elev1.entra()
+elev1.entra()
+elev1.entra()
+elev2.entra()
+elev2.entra()
+elev2.entra()
+elev2.entra()
+elev1.sobe()
+elev1.sobe()
+elev1.sobe()
+elev1.sobe()
+elev1.sobe()
+elev1.sobe()
+elev1.sobe()
+elev1.desce()
+elev1.desce()
+elev2.sobe()
+elev2.sobe()
+elev2.sobe()
+elev2.sobe()
+elev2.desce()
+elev2.sobe()
+
+#4 - Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volume e trocar os canais de tv
+# O Controle de volume permite aumentar ou diminuir a potencia do volume de som em uma un de cada vez
+# O controle de canal tb permite aumentar e diminuir o numero do canal em uma unidade porem tb possibilita trocar para um canal indicado
+# Tambem devem existir metodos de consultar o valor do volume de som e canal selecionado
+
+
+class Televisao:
+
+    contador = 1
+
+    def __init__(self):
+        self.cod = Televisao.contador
+        self.canal = 0
+        self.volume = 0
+        Televisao.contador += 1
+
+class ControleRemoto:
+
+    def __init__(self, codtv):
+        self.codtv = codtv
+
+
+    def aumentar_volume(self, tv):
+        if tv.cod == self.codtv:
+            if tv.volume < 10:
+                tv.volume += 1
+            else:
+                print("Volume está no máximo")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def diminuir_volume(self, tv):
+        if tv.cod == self.codtv:
+            if tv.volume > 0:
+                tv.volume -= 1
+            else:
+                print("Volume está no mínimo")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def aumentar_canal(self, tv):
+        if tv.cod == self.codtv:
+            if tv.canal < 20:
+                tv.canal += 1
+            else:
+                print("Canal está no máximo")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def diminuir_canal(self, tv):
+        if tv.cod == self.codtv:
+            if tv.canal > 0:
+                tv.canal -= 1
+            else:
+                print("Canal está no mínimo")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def consulta_volume(self, tv):
+        if tv.cod == self.codtv:
+            print(f"O volume da TV está em {tv.volume}/10")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def consulta_canal(self, tv):
+        if tv.cod == self.codtv:
+            print(f"O canal da TV está em {tv.canal}/20")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+    def mudar_canal(self, tv, numero):
+        if tv.cod == self.codtv:
+            if 0<=numero<=20:
+                tv.canal = numero
+            else:
+                print("Esse canal não existe.")
+        else:
+            print("Controle remoto não é dessa televisão.")
+
+tv1 = Televisao()
+tv2 = Televisao()
+
+cr1 = ControleRemoto(1)
+cr2 = ControleRemoto(2)
+
+cr1.consulta_canal(tv1)
+cr2.consulta_canal(tv2)
+
+cr1.mudar_canal(tv1,15)
+cr1.mudar_canal(tv1,25)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr1.aumentar_canal(tv1)
+cr2.aumentar_canal(tv2)
+cr2.aumentar_canal(tv2)
+cr2.aumentar_canal(tv2)
+cr2.aumentar_canal(tv2)
+cr2.aumentar_canal(tv2)
+cr2.consulta_canal(tv2)
+cr2.diminuir_canal(tv2)
+cr2.diminuir_canal(tv2)
+cr2.diminuir_canal(tv2)
+cr2.diminuir_canal(tv2)
+
+cr1.consulta_canal(tv1)
+cr2.consulta_canal(tv2)
+
+"""
+
+"""
+#1 - Escreva um código que apresente a classe Pessoa, com atributos nome, endereco e telefone e o metodo imprimir. O Metodo imprimir deve mostrar na tela os valores de todos os atributos
+
+class Pessoa:
+
+    nome = ""
+    endereco = ""
+    telefone = ""
+
+    @classmethod
+    def imprimir(cls):
+        print(f"Nome = {cls.nome}\nEndereço = {cls.endereco}\nTelefone = {cls.telefone}")
+
+Pessoa.nome = "Joao"
+Pessoa.endereco = "Rua B - Bairro Uto"
+Pessoa.telefone = "3000-5066"
+
+Pessoa.imprimir()
+
+#2 - Baseando-se no ex 1 adicione um metodo construtor que permita a definiçao de todos os atributos no momento da instanciaçao do objeto
+
+class Pessoa:
+
+    def __init__(self, nome, endereco, telefone):
+        self.nome = nome
+        self.endereco = endereco
+        self.telefone = telefone
+
+    def imprimir(self):
+        print(f"Nome = {self.nome}\nEndereço = {self.endereco}\nTelefone = {self.telefone}")
+
+pes1 = Pessoa("Joao", "Rua C - Bairro Mar", "3506-0440")
+pes2 = Pessoa("Val", "Rua T - Bairro Ube", "1045-5090")
+
+pes1.imprimir()
+pes2.imprimir()
+
+#3 - Escreva um codigo que apresente a classe Quadrado, com atributos lado, area e perimetro e os metodos calcular area, calularperimetro e imprimir. Os metodos calcular area e 
+# calcular perimetro devem efetuar seus respectivos calculos e colocar os valores nos atributos area e perimetro. O metodo imprimir deve mostrar na tela os valores de todos os 
+# atributos. Salienta-se que a area é l² e perimetro 4*l
+
+class Quadrado:
+
+    lado = 0
+    area = 0
+    perimetro = 0
+
+    @classmethod
+    def calcular_area(cls):
+        cls.area = cls.lado * cls.lado
+        return cls.area
+
+    @classmethod
+    def calcular_perimetro(cls):
+        cls.perimetro = 4*cls.lado
+        return cls.perimetro
+
+    @classmethod
+    def imprimir(cls):
+        print(f"Lado = {cls.lado}\nÁrea = {cls.area}\nPerímetro = {cls.perimetro}")
+
+Quadrado.lado = 5
+Quadrado.calcular_area()
+Quadrado.calcular_perimetro()
+Quadrado.imprimir()
+
+#4 - Baseado no exercicio 3 adicione um metodo construtor que permita a definiçao de todos os atributos no momento da instanciaçao do objeto
+
+class Quadrado:
+
+    def __init__(self, lado):
+        self.lado = lado
+        self.area = lado*lado
+        self.perimetro = 4*lado
+
+    def imprimir(self):
+        print(f"Lado = {self.lado}\nÁrea = {self.area}\nPerímetro = {self.perimetro}")
+
+quad1 = Quadrado(5)
+quad2 = Quadrado(20)
+
+quad1.imprimir()
+quad2.imprimir()
+
+#5 - Escreva um codigo que apresente a classe Retangulo, com atributos comprimento, largura, area e perimetro e os metodos calcular area, calcular perimetro e imprimir
+
+class Retangulo:
+
+    comprimento = 0
+    largura = 0
+    area = 0
+    perimetro = 0
+
+    @classmethod
+    def calcular_area(cls):
+        cls.area = cls.comprimento * cls.largura
+        return cls.area
+
+    @classmethod
+    def calcular_perimetro(cls):
+        cls.perimetro = 2*cls.comprimento + 2*cls.largura
+        return cls.perimetro
+
+    @classmethod
+    def imprimir(cls):
+        print(f"Comprimento = {cls.comprimento}\nLargura = {cls.largura}\nÁrea = {cls.area}\nPerímetro = {cls.perimetro}")
+
+
+Retangulo.comprimento = 3
+Retangulo.largura = 2
+Retangulo.calcular_area()
+Retangulo.calcular_perimetro()
+Retangulo.imprimir()
+
+#6 - Baseado no exercicio 5 adicione um metodo construtor que permita a definiçao de todos os atributos no momento da instanciação
+
+class Retangulo:
+
+    def __init__(self, comprimento, largura):
+        self.comprimento = comprimento
+        self.largura = largura
+        self.area = comprimento * largura
+        self.perimetro = 2*comprimento + 2*largura
+
+    def imprimir(self):
+        print(f"Comprimento = {self.comprimento}\nLargura = {self.largura}\nÁrea = {self.area}\nPerímetro = {self.perimetro}")
+
+
+ret1 = Retangulo(3,2)
+ret1.imprimir()
+
+#7 - Escrever um codigo que apresente a classe circulo com atributos raio, area e perimetro e os metodos calcular area, calcular perimetro e imprimir.
+
+class Circulo:
+
+    raio = 0
+    area = 0
+    perimetro = 0
+
+    @classmethod
+    def calcular_area(cls):
+        cls.area = 3.141592*cls.raio*cls.raio
+        return cls.area
+
+    @classmethod
+    def calcular_perimetro(cls):
+        cls.perimetro = 2*3.141592*raio
+        return perimetro
+
+    @classmethod
+    def imprimir(cls):
+        print(f"Raio = {cls.raio}\nÁrea = {cls.area}\nPerímetro = {cls.perimetro}")
+
+
+Circulo.raio = 5
+Circulo.calcular_area()
+Circulo.calcular_perimetro()
+Circulo.imprimir()
+
+#8 - Baseado no exercicio 7 adicione um metodo construtor que permita a definiçao de todos os atributos no momento da instanciaçao
+
+
+class Circulo:
+
+    def __init__(self, raio):
+        self.raio = raio
+        self.area = 3.141592*raio*raio
+        self.perimetro = 2*3.141592*raio
+
+    def imprimir(self):
+        print(f"Raio = {self.raio}\nÁrea = {self.area}\nPerímetro = {self.perimetro}")
+
+circ1 = Circulo(5)
+circ1.imprimir()
+
+
+"""
