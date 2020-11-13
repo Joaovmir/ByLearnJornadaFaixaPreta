@@ -1,0 +1,105 @@
+"""
+class Eletrodomestico:
+
+    def __init__(self):
+        self.ligado = False
+
+    def ligar_desligar(self):
+        if self.ligado == True:
+            self.ligado = False
+        else:
+            self.ligado = True
+
+    def imprimir(self):
+        print(self.__dict__)
+    
+class Televisao(Eletrodomestico):
+
+    def __init__(self, numero_canais, volume_maximo):
+        super().__init__()
+        self.numero_canais = numero_canais
+        self.volume_maximo = volume_maximo
+        self.canal = 1
+        self.volume = 0
+
+    def canal_acima(self):
+        if self.ligado == True:
+            if self.canal < self.numero_canais:
+                self.canal += 1
+            else:
+                self.canal = 1
+        else:
+            print("Televisor desligado.")
+
+    def canal_abaixo(self):
+        if self.ligado == True:
+            if self.canal > 1:
+                self.canal -= 1
+            else:
+                self.canal = numero_canais
+        else:
+            print("Televisor desligado.")
+    
+    def volume_acima(self):
+        if self.ligado == True:
+            if self.volume < self.volume_maximo:
+                self.volume += 1
+            else:
+                self.volume = self.volume_maximo
+        else:
+            print("Televisor desligado.")
+
+    def volume_abaixo(self):
+        if self.ligado == True:
+            if self.volume > 0:
+                self.volume -= 1
+            else:
+                self.volume = 0
+        else:
+            print("Televisor desligado.")
+
+    def mudar_canal(self, numero):
+        if self.ligado == True:
+            if 1<=numero<=self.numero_canais:
+                self.canal = numero
+            else:
+                print("Esse canal não existe.")
+        else:
+            print("Televisor desligado.")
+
+
+tlv1 = Televisao(10,5)
+tlv1.volume_acima()
+tlv1.imprimir()
+tlv1.ligar_desligar()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.canal_acima()
+tlv1.volume_acima()
+tlv1.volume_acima()
+tlv1.volume_acima()
+tlv1.imprimir()
+tlv1.volume_abaixo()
+tlv1.volume_abaixo()
+tlv1.volume_abaixo()
+tlv1.volume_abaixo()
+tlv1.volume_abaixo()
+tlv1.imprimir()
+
+
+televisao=Televisao(15,30)
+televisao.ligar_desligar()
+televisao.mudar_canal(5)
+televisao.imprimir()
+televisao.mudar_canal(25)
+
+"""
